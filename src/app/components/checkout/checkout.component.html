@@ -1,0 +1,181 @@
+<!-- Ajoutez ceci en haut de votre template, avant la superposition de succès -->
+<header>
+  <nav class="navbar">
+    <button class="logo" data-text="Awesome" routerLink="/home">
+      <span class="logo-actual-text">&nbsp;LineSat&nbsp;</span>
+      <span aria-hidden="true" class="logo-hover-text">&nbsp;LineSat&nbsp;</span>
+    </button>
+
+    <a class="signup-text">
+      🛰️ Bienvenue sur LineSat – Votre passerelle vers un IPTV de qualité
+    </a>
+    <div class="ESSAI-container">
+      <button class="ESSAI-button" routerLink="/home">
+        <span class="button-text-wrapper">
+          <span class="button-text">Retour à l’accueil</span>
+          <span class="button-text hover-text">Retour à l’accueil</span>
+        </span>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<!-- Superposition de message de succès -->
+<div class="success-overlay" *ngIf="submissionStatus === 'success'">
+  <div class="success-popup">
+    <h2>Commande envoyée !</h2>
+    <p>Merci de votre confiance... notre équipe vous contactera dès que possible, sous 24 heures.</p>
+    <button class="ok-button" (click)="goToHome()">OK</button>
+  </div>
+</div>
+
+<div class="light-checkout-container">
+  <div class="checkout-header">
+    <h1>Finalisez votre commande</h1>
+    <p class="secure-checkout">
+      <i class="fas fa-lock"></i> Paiement sécurisé avec chiffrement SSL
+    </p>
+  </div>
+
+  <div class="checkout-grid">
+    <div class="checkout-form">
+      <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
+        
+        <!-- Informations du client -->
+        <div class="form-section">
+          <h2><i class="fas fa-user"></i> Informations du client</h2>
+          <div class="form-field full-width">
+            <label>Adresse Email *</label>
+            <input type="email" formControlName="email" placeholder="votre@email.com">
+            <div class="error-message" *ngIf="checkoutForm.get('email')?.invalid && checkoutForm.get('email')?.touched">
+              Veuillez entrer un email valide
+            </div>
+          </div>
+        </div>
+
+        <!-- Détails de facturation -->
+        <div class="form-section">
+          <h2><i class="fas fa-address-card"></i> Détails de facturation</h2>
+          <div class="form-row">
+            <div class="form-field">
+              <label>Prénom</label>
+              <input type="text" formControlName="firstName" placeholder="(Optionnel)">
+            </div>
+            <div class="form-field">
+              <label>Nom *</label>
+              <input type="text" formControlName="lastName" placeholder="Requis">
+              <div class="error-message" *ngIf="checkoutForm.get('lastName')?.invalid && checkoutForm.get('lastName')?.touched"> 
+                Le nom est requis
+              </div>
+            </div>
+          </div>
+
+          <div class="form-field">
+            <label>Pays *</label>
+            <select formControlName="country">
+              <option value="">Sélectionnez un pays</option>
+              <option value="Ireland">France</option>
+              <option value="Ireland">Suisse</option>
+              <option value="Ireland">Belgique</option>
+              <option value="UK">Royaume-Uni</option>
+              <option value="USA">États-Unis</option>
+              <option value="Canada">Canada</option>
+            </select>
+          </div>
+
+          <div class="form-field">
+            <label>Ville</label>
+            <input type="text" formControlName="city" placeholder="Votre ville">
+          </div>
+
+          <div class="form-field">
+            <label>Numéro WhatsApp *</label>
+            <input type="tel" formControlName="phone" placeholder="+33 (___) ___-____">
+            <div class="error-message" *ngIf="checkoutForm.get('phone')?.invalid && checkoutForm.get('phone')?.touched">
+              Numéro de téléphone valide requis
+            </div>
+          </div>
+        </div>
+
+        <!-- Résumé de la commande -->
+        <div class="form-section">
+          <h2><i class="fas fa-shopping-cart"></i> Votre commande</h2>
+          <div class="order-summary-card" *ngIf="selectedPlan">
+            <div class="order-header">
+              <h3>{{ selectedPlan.title }}</h3>
+              <span class="price">{{ selectedPlan.price }}</span>
+            </div>
+            <p class="order-description">{{ selectedPlan.description }}</p>
+            <div class="order-features">
+              <div class="feature">
+                <i class="fas fa-check"></i> Activation instantanée
+              </div>
+              <div class="feature">
+                <i class="fas fa-check"></i> Support 24h/24 et 7j/7
+              </div>
+              <div class="feature">
+                <i class="fas fa-check"></i> Sans engagement
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <button type="submit" class="submit-btn" [disabled]="checkoutForm.invalid || isSubmitting">
+          {{ isSubmitting ? 'Traitement...' : 'Finaliser la commande' }}
+        </button>
+
+        <div class="guarantee-badge">
+          <i class="fas fa-shield-alt"></i>
+          <span>Garantie satisfait ou remboursé de 7 jours</span>
+        </div>
+      </form>
+    </div>
+
+    <!-- Résumé de la commande (sidebar) -->
+    <div class="order-sidebar">
+      <h3>Résumé de la commande</h3>
+      
+      <div class="order-details">
+        <div class="detail-row">
+          <span>Formule :</span>
+          <span>{{ selectedPlan?.title }}</span>
+        </div>
+        <div class="detail-row">
+          <span>Durée :</span>
+          <span>{{ selectedPlan?.duration?.replace('/', '') || '' }}</span>
+        </div>
+        <div class="detail-row">
+          <span>Sous-total :</span>
+          <span>{{ selectedPlan?.price }}</span>
+        </div>
+        <div class="detail-row total">
+          <span>Total :</span>
+          <span>{{ selectedPlan?.price }}</span>
+        </div>
+      </div>
+
+      <div class="customer-support">
+        <h4>Besoin d’aide ?</h4>
+        <div class="support-option">
+          <i class="fab fa-whatsapp"></i>
+          <span>(+44) 745-643-5056</span>
+        </div>
+        <div class="support-option">
+          <i class="fas fa-envelope"></i>
+          <span>support&#64;linesat.com</span>
+        </div>
+      </div>
+
+      <div class="security-info">
+        <div class="security-item">
+          <i class="fas fa-lock"></i>
+          <span>Chiffrement SSL 256 bits</span>
+        </div>
+        <div class="security-item">
+          <i class="fas fa-shield-alt"></i>
+          <span>Paiements conformes PCI</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,10 @@
+<div class="login-container">
+    <h2>Login</h2>
+    <form (ngSubmit)="onLogin()">
+      <input type="email" [(ngModel)]="authRequest.email" name="email" placeholder="Email" required>
+      <input type="password" [(ngModel)]="authRequest.password" name="password" placeholder="Password" required>
+      <button type="submit">Login</button>
+      <p *ngIf="error" class="error">{{ error }}</p>
+    </form>
+  </div>
+  

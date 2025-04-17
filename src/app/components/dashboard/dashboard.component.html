@@ -1,0 +1,133 @@
+<div class="dashboard-container">
+  <h1>Admin Dashboard</h1>
+  <button (click)="refreshData()" class="refresh-btn">Refresh Data</button>
+  <br>
+  <button routerLink="/home" class="home-btn">Back to Home</button>
+
+  <!-- Stats Overview -->
+  <div class="stats-overview">
+    <div class="stat-card">
+      <h3>Total Plans</h3>
+      <p>{{plans.length}}</p>
+    </div>
+    <div class="stat-card">
+      <h3>Total Orders</h3>
+      <p>{{stats.totalOrderRequests}}</p>
+    </div>
+    <div class="stat-card">
+      <h3>Verified Trials</h3>
+      <p>{{stats.verifiedTrials}}</p>
+    </div>
+    <div class="stat-card">
+      <h3>Pending Trials</h3>
+      <p>{{stats.pendingTrials}}</p>
+    </div>
+  </div>
+
+  <!-- IPTV Plans Section -->
+  <div class="section">
+    <h2>IPTV Plans ({{plans.length}})</h2>
+    <div *ngIf="loading.plans" class="loading">Loading plans...</div>
+    <div *ngIf="errors.plans" class="error-message">{{errors.plans}}</div>
+    
+    <table *ngIf="!loading.plans && !errors.plans">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Price</th>
+          <th>Duration</th>
+          <th>Free Months</th>
+          <th>Type</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let plan of plans">
+          <td>{{plan.id}}</td>
+          <td>{{plan.name}}</td>
+          <td>{{plan.description}}</td>
+          <td>{{plan.price | currency}}</td>
+          <td>{{plan.durationMonths}} months</td>
+          <td>{{plan.freeMonths}}</td>
+          <td>{{plan.type}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Free Trial Requests Section -->
+  <div class="section">
+    <h2>Free Trial Requests ({{trials.length}})</h2>
+    <div *ngIf="loading.trials" class="loading">Loading trials...</div>
+    <div *ngIf="errors.trials" class="error-message">{{errors.trials}}</div>
+    
+    <table *ngIf="!loading.trials && !errors.trials">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Email</th>
+          <th>Name</th>
+          <th>WhatsApp</th>
+          <th>Country</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let trial of trials">
+          <td>{{trial.id}}</td>
+          <td>{{trial.email}}</td>
+          <td>{{trial.firstName || 'N/A'}}</td>
+          <td>{{trial.whatsappNumber}}</td>
+          <td>{{trial.country}}</td>
+          <td [class.verified]="trial.verified" [class.pending]="!trial.verified">
+            {{trial.verified ? 'Verified' : 'Pending'}}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Order Requests Section (your existing code) -->
+  <div class="section">
+    <h2>Customer Orders ({{orderRequests.length}})</h2>
+    <div *ngIf="loading.orderRequests" class="loading">Loading orders...</div>
+    <div *ngIf="errors.orderRequests" class="error-message">{{errors.orderRequests}}</div>
+    
+    <table *ngIf="!loading.orderRequests && !errors.orderRequests">
+      <thead>
+        <tr>
+          <th>Order ID</th>
+          <th>Client Name</th>
+          <th>Contact</th>
+          <th>Location</th>
+          <th>Orders Count</th>
+          <th>Plan Details</th>
+          <th>Order Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let order of orderRequests">
+          <td>{{order.id}}</td>
+          <td>{{order.clientInfo.firstName}} {{order.clientInfo.lastName}}</td>
+          <td>
+            <div>{{order.clientInfo.email}}</div>
+            <div>{{order.clientInfo.phone}}</div>
+          </td>
+          <td>{{order.clientInfo.city}}</td>
+          <td>{{order.clientInfo.orderCount}}</td>
+          <td>
+            <div class="plan-details">
+              <strong>{{order.selectedPlan.name}}</strong>
+              <div>{{order.selectedPlan.description}}</div>
+              <div>Price: {{order.selectedPlan.price | currency}}</div>
+              <div>Duration: {{order.selectedPlan.durationMonths}} months</div>
+              <div>+ {{order.selectedPlan.freeMonths}} free months</div>
+            </div>
+          </td>
+          <td>{{order.orderDate | date:'medium'}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

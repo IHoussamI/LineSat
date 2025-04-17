@@ -1,0 +1,535 @@
+.button-icons {
+  width: 20px;
+  height: 20px;
+  filter: brightness(0) invert(1) contrast(1.2);
+}  
+
+.button-text-wrapper {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  height: 24px;
+}
+
+.button-text {
+  display: inline-block;
+  position: relative;
+  transition: transform 0.3s ease;
+  line-height: 24px;
+}
+
+.button-text.hover-text {
+  position: absolute;
+  left: 0;
+  top: 100%;
+  line-height: 24px;
+}
+
+button:hover .button-text,
+.manage-subscription:hover .button-text {
+  transform: translateY(-100%);
+}
+
+button:hover .button-text.hover-text,
+.manage-subscription:hover .button-text.hover-text {
+  transform: translateY(-100%);
+}
+
+
+/* HEADER ** */
+header {
+  position: absolute; /* Changed from absolute to fixed */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1001;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 20px;
+  background-color: #333;
+  color: white;
+}
+.navbar .button-icons{
+  margin-right:5px;
+
+}
+.signup-text {
+  text-decoration: none;
+  flex:2;
+  text-align: center;
+  font-size: clamp(8px, 2vw, 13px);
+  font-weight: bold;
+  font-style:italic;
+  color: white;
+  padding-left:30px;
+  margin-left:180px;
+
+}
+
+/* @LOGO */
+.logo {
+  margin: 0;
+  height: auto;
+  background: transparent;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+  width: auto;
+}
+
+.logo {
+  --border-right: 6px;
+  --text-stroke-color: rgba(255,255,255,0.6);
+  --animation-color: #FFB300;
+  letter-spacing: 3px;
+  text-decoration: none;
+  font-size: clamp(1.2rem, 4vw, 2rem); 
+  font-family: "Arial";
+  position: relative;
+  text-transform: uppercase;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--text-stroke-color);
+  display: inline-block;
+
+}
+.logo-hover-text {
+  position: absolute;
+  box-sizing: border-box;
+  content: attr(data-text);
+  color: var(--animation-color);
+  width: 0%;
+  inset: 0;
+  border-right: var(--border-right) solid var(--animation-color);
+  overflow: hidden;
+  transition: 0.5s;
+  -webkit-text-stroke: 1px var(--animation-color);
+}
+/* hover */
+.logo:hover .logo-hover-text {
+  width: 100%;
+  filter: drop-shadow(0 0 23px var(--animation-color))
+}
+
+.ESSAI-container{
+  flex:1;
+  display:flex;
+  justify-content: flex-end;
+  align-items: center;
+  
+}
+
+.ESSAI-button {
+  display: flex; /* Add this */
+  align-items: center; /* Vertically center children */
+  gap: 8px;
+  background: linear-gradient(135deg, #FFD700 0%, #FFB300 50%, #B8860B 100%);
+  color: black;
+  border: none;
+  white-space: nowrap;
+  letter-spacing: 1.3px;
+  line-height: 2.5em;
+  font-weight: 700;
+  font-family: "Lato", sans-serif;
+  padding: 5px 15px;
+  margin-right: 20px;
+  font-size: clamp(10px, 1.5vw, 11px); 
+  cursor: pointer;
+  border-radius: 30px;
+  transition: background 0.3s ease-in-out;
+
+}
+
+.ESSAI-button img{
+  margin-top:3px;
+}
+@media (max-width: 767px) {
+  .navbar {
+      padding: 8px 10px;
+      flex-wrap: wrap;
+      }
+  
+  
+  .bingebear-logo img {
+    max-width: 80px;
+  }
+  
+  .signup-text {
+      order: 3;
+      flex: 1 0 100%;
+      margin-top: 10px;
+      font-size: clamp(7px, 3vw, 9px);
+  }
+  
+  .ESSAI-button {
+    margin-right:0;
+    padding: 3px 12px;
+    line-height: 2em;
+  }
+}
+
+/* Tablets */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .navbar {
+    padding: 12px 18px;
+  }
+  
+  .bingebear-logo img {
+    max-width: 110px;
+  }
+  
+  .signup-text {
+    flex: 1.5;
+  }
+}
+
+/* Large screens */
+@media (min-width: 1024px) {
+  .navbar {
+    padding: 15px 20px;
+  }
+  
+  .bingebear-logo img {
+    max-width: 120px;
+  }
+}
+
+  /* Light Theme Checkout Styles */
+.light-checkout-container {
+    font-family: 'Chivo', sans-serif;
+    max-width: 1200px;
+    margin: 80px auto;
+    padding: 20px;
+    color: #333;
+  }
+  
+  .checkout-header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  
+  .checkout-header h1 {
+    font-size: 2.2rem;
+    color: #222;
+    margin-bottom: 10px;
+  }
+  
+  .secure-checkout {
+    color: #4CAF50;
+    font-size: 0.9rem;
+  }
+  
+  .secure-checkout i {
+    margin-right: 8px;
+  }
+  
+  .checkout-grid {
+    display: flex;
+    gap: 30px;
+  }
+  
+  .checkout-form {
+    flex: 1.5;
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  }
+  
+  .order-sidebar {
+    flex: 1;
+    background: #f9f9f9;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  }
+  
+  .form-section {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .form-section h2 {
+    font-size: 1.3rem;
+    color: #444;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .form-section h2 i {
+    color: #FFA500;
+  }
+  
+  .form-field {
+    margin-bottom: 20px;
+  }
+  
+  .form-field label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #555;
+  }
+  
+  .form-field input,
+  .form-field select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-family: 'Chivo', sans-serif;
+    font-size: 1rem;
+    transition: all 0.3s;
+  }
+  
+  .form-field input:focus,
+  .form-field select:focus {
+    outline: none;
+    border-color: #FFA500;
+    box-shadow: 0 0 0 2px rgba(255,165,0,0.1);
+  }
+  
+  .form-row {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .form-row .form-field {
+    flex: 1;
+  }
+  
+  .error-message {
+    color: #e53935;
+    font-size: 0.8rem;
+    margin-top: 5px;
+  }
+  
+  .order-summary-card {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    border-left: 3px solid #FFA500;
+  }
+  
+  .order-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .order-header h3 {
+    font-size: 1.1rem;
+    color: #222;
+  }
+  
+  .order-header .price {
+    font-weight: 700;
+    color: #FFA500;
+  }
+  
+  .order-description {
+    color: #666;
+    margin-bottom: 15px;
+  }
+  
+  .order-features {
+    margin-top: 15px;
+  }
+  
+  .feature {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #555;
+    margin-bottom: 8px;
+  }
+  
+  .feature i {
+    color: #4CAF50;
+  }
+  
+ 
+  .submit-btn {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(to right, #FFA500, #FF8C00);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 20px;
+  }
+  
+  .submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255,165,0,0.2);
+  }
+  
+  .submit-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+  
+  .guarantee-badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 20px;
+    color: #666;
+    font-size: 0.9rem;
+  }
+  
+  .guarantee-badge i {
+    color: #4CAF50;
+  }
+  
+  /* Order Sidebar Styles */
+  .order-sidebar h3 {
+    font-size: 1.3rem;
+    color: #444;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .order-details {
+    margin-bottom: 30px;
+  }
+  
+  .detail-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px dashed #eee;
+  }
+  
+  .detail-row.total {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #222;
+    border-bottom: none;
+    padding-top: 10px;
+  }
+  
+  .customer-support {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+  }
+  
+  .customer-support h4 {
+    margin-bottom: 15px;
+    color: #444;
+  }
+  
+  .support-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+    color: #555;
+  }
+  
+  .support-option i {
+    color: #FFA500;
+  }
+  
+  .security-info {
+    margin-top: 30px;
+  }
+  
+  .security-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+    color: #666;
+  }
+  
+  .security-item i {
+    color: #4CAF50;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .checkout-grid {
+      flex-direction: column;
+    }
+    
+    .checkout-header h1 {
+      font-size: 1.8rem;
+    }
+    
+    .payment-options {
+      flex-direction: column;
+    }
+    
+    .form-row {
+      flex-direction: column;
+      gap: 0;
+    }
+  }
+  
+  /* Success Popup Styles */
+  .success-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+  }
+  
+  .success-popup {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 500px;
+    text-align: center;
+    box-shadow: 0 5px 30px rgba(0,0,0,0.2);
+  }
+  
+  .success-popup h2 {
+    color: #4CAF50;
+    margin-bottom: 15px;
+  }
+  
+  .success-popup p {
+    margin-bottom: 20px;
+    line-height: 1.6;
+  }
+  
+  .ok-button {
+    padding: 10px 25px;
+    background: #FFA500;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s;
+  }
+  
+  .ok-button:hover {
+    background: #FF8C00;
+    transform: translateY(-2px);
+  }
