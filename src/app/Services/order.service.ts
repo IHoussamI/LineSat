@@ -6,7 +6,7 @@ import { OrderRequest } from '../Models/OrderRequest.model';
   providedIn: 'root'
 })
 export class OrderService {
-  private apiUrl = 'http://localhost:8080/api/orders';
+  private apiUrl = 'https://api.line-sat.com/api/orders';
 
   constructor(private http: HttpClient) {}
 

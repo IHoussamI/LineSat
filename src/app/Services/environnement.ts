@@ -1,7 +1,7 @@
 // src/environments/environment.ts
 export const environment = {
     production: false,
-    apiUrl: 'http://localhost:8080', // Your Spring Boot base URL
+    apiUrl: 'http://localhost:8080', 
     endpoints: {
       auth: '/api/auth/authenticate',
       admin: {

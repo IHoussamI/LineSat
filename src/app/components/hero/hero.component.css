@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@700&family=Helvetica+Neue:wght@400;700&family=Open+Sans:wght@400;700&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@700&family=Helvetica+Neue:wght@400;700&family=Open+Sans:wght@400;700&display=swap'); */
 
 * {
   margin: 0;
@@ -12,7 +12,7 @@ body{
     width: 100%;
     min-height: 100vh;
     overflow-x: hidden;
-    background-color: #020202; /* Slightly softer dark background for the body */
+    background-color: #020202; 
 }
 h1,
 h2,
@@ -28,52 +28,15 @@ html {
 }
 
 :root {
-    --header-height: 110px; /* Define your header height here */
+    --header-height: 110px; 
 }
 
-/* COMMON STYLES  */
 
-.button-icons {
-    width: 20px;
-    height: 20px;
-    filter: brightness(0) invert(1) contrast(1.2);
-  }  
-
-  .button-text-wrapper {
-    position: relative;
-    display: block;
-    overflow: hidden;
-    height: 24px;
-  }
-  
-  .button-text {
-    display: inline-block;
-    position: relative;
-    transition: transform 0.3s ease;
-    line-height: 24px;
-  }
-  
-  .button-text.hover-text {
-    position: absolute;
-    left: 0;
-    top: 100%;
-    line-height: 24px;
-  }
-  
-  button:hover .button-text,
-  .manage-subscription:hover .button-text {
-    transform: translateY(-100%);
-  }
-  
-  button:hover .button-text.hover-text,
-  .manage-subscription:hover .button-text.hover-text {
-    transform: translateY(-100%);
-  }
 
 
 /* HEADER ** */
 header {
-    position: absolute; /* Changed from absolute to fixed */
+    position: absolute; 
     top: 0;
     left: 0;
     width: 100%;
@@ -93,6 +56,14 @@ header {
     margin-right:5px;
   
   }
+  .button-text-essai{
+    position: relative;
+    transition: transform 0.3s ease;
+    display: inline-block;
+  }
+ 
+  
+
 
   /* @LOGO */
 .logo {
@@ -146,29 +117,91 @@ header {
   }
   
   .ESSAI-button {
-    display: flex; /* Add this */
-    align-items: center; /* Vertically center children */
-    gap: 8px;
-    background: linear-gradient(135deg, #FFD700 0%, #FFB300 50%, #B8860B 100%);
-    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+    color: #111;
     border: none;
-    white-space: nowrap;
-    letter-spacing: 1.3px;
-    line-height: 2.5em;
-    font-weight: 700;
-    font-family: "Lato", sans-serif;
-    padding: 5px 15px;
-    margin-right: 20px;
-    font-size: clamp(10px, 1.5vw, 11px); 
+    border-radius: 50px;
+    padding: 0.5rem 1.5rem;
+    font-weight: bold;
+    font-size: clamp(0.7rem, 1.5vw, 0.8rem);
     cursor: pointer;
-    border-radius: 30px;
-    transition: background 0.3s ease-in-out;
-  
-  }
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: 0 4px 15px rgba(255, 179, 0, 0.4);
+    z-index: 1;
+    white-space: nowrap;
+    margin-right: 20px;
+}
 
-  .ESSAI-button img{
-    margin-top:3px;
-  }
+/* Button icon styling */
+.ESSAI-button .button-icons {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+    filter: brightness(0) invert(1) contrast(1.2);
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+}
+
+/* Button text styling */
+.ESSAI-button .button-text-essai {
+    position: relative;
+    transition: transform 0.3s ease;
+    display: inline-block;
+}
+
+/* Ripple effect */
+.ESSAI-button::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 5px;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.5);
+    opacity: 0;
+    border-radius: 100%;
+    transform: scale(1, 1) translate(-50%);
+    transform-origin: 50% 50%;
+}
+
+/* Hover states */
+.ESSAI-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(255, 179, 0, 0.3);
+    background: linear-gradient(135deg, #FFA500 0%, #FFD700 100%);
+}
+
+.ESSAI-button:hover::after {
+    animation: ripple 1s ease-out;
+}
+
+.ESSAI-button:hover .button-icons {
+    transform: scale(1.1);
+}
+
+.ESSAI-button:hover .button-text-essai {
+    transform: translateY(-1px);
+}
+
+/* Ripple animation */
+@keyframes ripple {
+    0% {
+        transform: scale(0, 0);
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(20, 20);
+        opacity: 0;
+    }
+}
+
+  
+
   @media (max-width: 767px) {
     .navbar {
         padding: 8px 10px;
@@ -240,7 +273,6 @@ header {
     overflow: hidden;
     
 }
-
 .content {
     max-width: 800px;
     margin: 0 auto;
@@ -304,7 +336,7 @@ header {
     gap: 2.5rem;
     margin: 2.5rem auto 1rem;
 }
-button, .service {
+.service button {
     min-width: 44px;
     min-height: 44px;
 }
@@ -312,12 +344,12 @@ button, .service {
 
 .service {
     text-align: center;
-    min-width: 120px; /* Minimum width */
+    min-width: 120px; 
 
     transition: all 0.3s ease;
     padding: 1rem;
     border-radius: 10px;
-    margin: -0.5rem; /* Negative margin to compensate for increased padding on hover */
+    margin: -0.5rem; 
 
 }
 
@@ -341,7 +373,7 @@ button, .service {
     color: #FFD700;
     letter-spacing: 0.5px;
     word-break: break-word;
-    white-space: normal; /* Allow text wrapping */
+    white-space: normal; 
 
     
 }
@@ -349,71 +381,114 @@ button, .service {
 .button-container {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: stretch;
     gap: 1rem;
     margin: 2rem auto;
-    max-width: min(330px, 90%);
-    width: 100%;
-}
+    max-width: 400px;
+    width: auto;
+  }
+
 .button-container button {
     position: relative;
-    padding: 0.5rem ;
+    padding: 0.7rem 1.5rem; 
     border: none;
     border-radius: 50px;
-    font-size: 0.8rem;
+    font-size: clamp(0.7rem, 2vw, 0.8rem); 
     font-weight: bold;
     cursor: pointer;
     overflow: hidden;
-    width: 100%;
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    display: flex;
+    display: flex; 
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start; 
+    white-space: nowrap; 
+    min-height: 44px; 
+
+
 }
+
 
 .button-container .button-icons {
-    margin-right: 8px;
-    width: 30px;
-    height: 30px;
+  width: 30px;
+  height: 30px;
+  filter: brightness(0) invert(1) contrast(1.2);
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+  margin-right: 0.75rem; 
+  position: static; 
+
 }
 
+.button-text-firstsection {
+  position: relative;
+  transition: transform 0.3s ease;
+  display: inline-flex; 
+  
+}
+
+/* Primary Button (Gold) */
 .button-container button:first-child {
-    background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
-    box-shadow: 0 4px 15px rgba(255, 179, 0, 0.4);
-    color: #111;
+  background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+  color: #111;
+  box-shadow: 0 4px 15px rgba(255, 179, 0, 0.4);
 }
 
+/* Secondary Button (Outline) */
 .button-container button:last-child {
-    background: transparent;
-    color: #FFD700;
-    font-weight: 700;
-    border: 2px solid #FFD700;
+  background: transparent;
+  color: #FFD700;
+  font-weight: 700;
+  border: 2px solid #FFD700;
 }
 
+/* Hover Effects */
 .button-container button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(255, 179, 0, 0.3);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(255, 179, 0, 0.4);
 }
 
 .button-container button:first-child:hover {
-    background: linear-gradient(135deg, #FFA500 0%, #FFD700 100%);
+  background: linear-gradient(135deg, #FFA500 0%, #FFD700 100%);
 }
 
 .button-container button:last-child:hover {
-    background: rgba(255, 215, 0, 0.15);
+  background: rgba(255, 215, 0, 0.1);
 }
 
-/* Animation for the section */
-@keyframes fadeIn {
-    from { 
-        opacity: 0; 
-        transform: translateY(30px); 
-    }
-    to { 
-        opacity: 1; 
-        transform: translateY(0); 
-    }
+/* Ripple Effect */
+.button-container button::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.5);
+  opacity: 0;
+  border-radius: 100%;
+  transform: scale(1, 1) translate(-50%);
+  transform-origin: 50% 50%;
+  z-index: -1;
+}
+
+.button-container button:hover::after {
+  animation: ripple 1s ease-out;
+}
+
+@keyframes ripple {
+  0% {
+      transform: scale(0, 0);
+      opacity: 0.5;
+  }
+  100% {
+      transform: scale(20, 20);
+      opacity: 0;
+  }
+}
+
+.button-container button:hover .button-icons {
+  transform: scale(1.1);
 }
 
 /* Responsive adjustments */
@@ -441,10 +516,17 @@ button, .service {
     .service h3 {
         font-size: 0.7rem;
     }
-    .button-text-wrapper {
-        padding: 0 10px;
-        font-size:0.7rem;
-    }
+    .content {
+      padding: 1.5rem;
+  }
+  
+  .button-container {
+      width: min(100%, 350px);
+  }
+  
+  .button-container button {
+      padding: 0.7rem 1.2rem;
+  }
 }
 
 @media (max-width: 523px) {
@@ -460,10 +542,37 @@ button, .service {
         padding: 0.8rem 0.5rem;
     }
     
-    .button-text-wrapper {
-        padding: 0 10px;
-        font-size:0.6rem;
-    }
+    .content {
+      padding: 1.2rem;
+  }
+  
+  .button-container button {
+    flex-direction: row; 
+    padding: 0.6rem 1rem; 
+    white-space: normal; 
+}
+
+  
+.button-icons {
+  width: 18px;
+  height: 18px;
+  margin-right: 8px; 
+  margin-bottom: 0; 
+  align-self: center;
+}
+
+.button-text-firstsection {
+  text-align: left; 
+  font-size: 0.7rem; 
+  line-height: 1.3; 
+  display: inline;
+}
+
+/* Adjust button container width for small screens */
+.button-container {
+  width: 100%;
+  max-width: 300px;
+}
     .service-icon {
         width: 30px;
         height: 30px;
@@ -642,34 +751,34 @@ button, .service {
 /* Movie Swiper Section */
 .swiper-title {
   text-align: center;
-  color: #FFA500; /* Match the border color */
-  font-size: clamp(1.5rem, 4vw, 2rem); /* Responsive font size */
-  margin-top: 3rem; /* Space above the title */
-  margin-bottom: 1rem; /* Space between title and swiper */
+  color: #FFA500; 
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  margin-top: 3rem; 
+  margin-bottom: 1rem; 
   font-weight: bold;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 
 .movie-swiper-section {
-  background: linear-gradient(to bottom right, #1c1c1c, #333333); /* Example dark gradient */
-  padding: 2rem; /* Add padding around the swiper */
-  margin: 2rem auto; /* Center horizontally and add vertical margin */
-  width: 90%; /* Take up 90% of the viewport width */
-  max-width: 1400px; /* Set a max-width */
+  background: transparent;
+  padding: 2rem; 
+  margin: 2rem auto; 
+  width: 90%; 
+  max-width: 1400px;
   align-items: center;
   display:flex;
   
-  border: 3px solid #FFA500; /* Add border with specified color */
-  border-radius: 15px; /* Add rounded corners */
-  box-shadow: 0 5px 15px rgba(255, 165, 0, 0.2); /* Subtle shadow */
+  border: 3px solid #FFA500; 
+  border-radius: 15px; 
+  box-shadow: 0 5px 15px rgba(255, 165, 0, 0.2); 
 }
 .movie-swiper-container {
   width: 100%;
   margin: 0; /* No margins for the container */
   padding: 0;
   display: flex;
-  justify-content: space-between; /* Ensure swiper slides are aligned side by side */
+  justify-content: space-between; 
 }
 .movie-swiper-section swiper-container {
   width: 100%;
@@ -681,7 +790,7 @@ button, .service {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0; /* Remove any margins between slides */
+  margin: 0;
 
 }
 .movie-swiper-section swiper-slide img {
@@ -707,7 +816,7 @@ button, .service {
   }
 
   .movie-swiper-section swiper-slide img {
-    max-width: 300px; /* Adjust the image size for smaller screens */
+    max-width: 300px; 
   }
 
   .movie-swiper-section swiper-container {
@@ -717,7 +826,6 @@ button, .service {
 }
 
 @media (max-width: 768px) {
-  /* Adjust padding and width for smaller screens if needed */
   .movie-swiper-section {
     padding: 1.5rem;
     width: 95%;
@@ -728,7 +836,7 @@ button, .service {
   }
 
   .movie-swiper-section swiper-slide img {
-    max-width: 300px; /* Adjust the image size for tablets */
+    max-width: 300px; 
   }
 
   .movie-swiper-section swiper-container {
@@ -747,7 +855,7 @@ button, .service {
   }
 
   .movie-swiper-section swiper-slide img {
-    max-width: 300px; /* Default size for larger screens */
+    max-width: 300px; 
   }
 
   .movie-swiper-section swiper-container {
@@ -766,12 +874,11 @@ button, .service {
   }
 
   .movie-swiper-section swiper-slide img {
-    max-width: 350px; /* Adjust the image size for larger screens */
+    max-width: 350px; 
   }
 }
 
-
-/* Base Styles (All Screens) */
+/* DEVICE SECTION  */
 .devices-section {
   margin-top: 60px;
   background: hsl(0, 0%, 5%);
@@ -789,7 +896,7 @@ button, .service {
 }
 
 .devices-content {
-  order: 2; /* Content first on mobile */
+  order: 2; 
 }
 
 .badge-label {
@@ -832,39 +939,127 @@ button, .service {
   font-weight: bold;
 }
 
-/* Buttons Container */
-.devices-content .button-container {
+.devices-btn-container {
   display: flex;
-  flex-direction: column; /* Stack buttons vertically on mobile */
+  flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   gap: 0.8rem;
   margin: 1.8rem 0;
-  flex-wrap: nowrap;
-  width: fit-content;
-  max-width: 100%;
+  max-width: 300px;
   width: auto;
 }
 
-.devices-content .button-container button {
-  padding: 0.7rem 1.2rem;
+.devices-trial-btn,
+.devices-streaming-btn {
+  display: flex;
+  justify-content: flex-start; 
+  align-items: center;
+  gap:0.5rem;
+  color: #111;
+  border: none;
+  border-radius: 50px;
+  padding: 0.8rem 1rem; 
+  font-weight: bold;
   font-size: clamp(0.7rem, 3vw, 0.8rem);
-  width: 100%; 
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  z-index: 1;
   white-space: nowrap;
+  width: 100%;
+}
+
+/* Trial Button Specific */
+.devices-trial-btn {
+  background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+  box-shadow: 0 4px 15px rgba(255, 179, 0, 0.4);
+}
+
+/* Streaming Button Specific */
+.devices-streaming-btn {
+  background: transparent;
+  color: #FFD700;
+  font-weight: 700;
+  border: 2px solid #FFD700;
+}
+
+/* Button Icons */
+.devices-btn-icon {
+  width: 25px;
+  height: 25px;
+  filter: brightness(0) invert(1) contrast(1.2);
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+  margin-right: 0.75rem;
+  position: static
+}
+
+/* Button Text */
+.devices-btn-text {
+  display: flex;
+  align-items: center;
+  font-style: bold;
+  text-align: left; 
+  flex-grow: 1;
+}
+
+/* Ripple Effect */
+.devices-trial-btn::after,
+.devices-streaming-btn::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.5);
+  opacity: 0;
+  border-radius: 100%;
+  transform: scale(1, 1) translate(-50%);
+  transform-origin: 50% 50%;
+}
+
+/* Hover States */
+.devices-trial-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(255, 179, 0, 0.3);
+  background: linear-gradient(135deg, #FFA500 0%, #FFD700 100%);
+}
+
+.devices-streaming-btn:hover {
+  background: rgba(255, 215, 0, 0.1);
 
 }
 
-.devices-content .button-container .button-icons {
-  width: clamp(20px, 6vw, 30px);
-  height: clamp(20px, 6vw, 30px);
+.devices-trial-btn:hover::after,
+.devices-streaming-btn:hover::after {
+  animation: ripple 1s ease-out;
 }
 
-/* Image Container */
-.devices-image {
-  order: 1; /* Image first on mobile */
-  max-width: 100%;
-  margin: 0 auto;
+.devices-trial-btn:hover .devices-btn-icon,
+.devices-streaming-btn:hover .devices-btn-icon {
+  transform: scale(1.1);
 }
+
+.devices-trial-btn:hover .devices-btn-text,
+.devices-streaming-btn:hover .devices-btn-text {
+  transform: translateY(-1px);
+}
+
+/* Ripple Animation */
+@keyframes ripple {
+  0% {
+    transform: scale(0, 0);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(20, 20);
+    opacity: 0;
+  }
+}
+
 
 /* Tablet Breakpoint (768px+) */
 @media (min-width: 768px) {
@@ -875,7 +1070,7 @@ button, .service {
   }
   
   .devices-content {
-    order: 1; /* Reset order */
+    order: 1; 
     flex: 1;
   }
   
@@ -885,7 +1080,7 @@ button, .service {
   }
   
   .devices-content .button-container {
-    flex-direction: row; /* Side-by-side buttons */
+    flex-direction: row; 
     width: auto;
   }
   
@@ -919,7 +1114,7 @@ button, .service {
 @media (max-width: 767px) {
   .animated-device {
     animation: float 6s ease-in-out infinite;
-    max-width: 80%; /* Smaller floating area on mobile */
+    max-width: 80%; 
   }
   
   @keyframes float {
@@ -932,12 +1127,12 @@ button, .service {
 
 /* Device Image Animation */
 .devices-image {
-  flex: 1;
   position: relative;
-  max-width: 550px;
-  
-  
+  max-width: 500px; 
+  width: 100%;
+  margin: 0 auto;
 }
+
 .devices-image img{
   border-radius: 25px;
   width:100%;
@@ -948,9 +1143,12 @@ button, .service {
 
 .animated-device {
   width: 100%;
-  max-width: 500px;
+  height: auto; 
   animation: float 6s ease-in-out infinite;
   filter: drop-shadow(0 10px 20px rgba(255, 165, 0, 0.2));
+
+  image-rendering: -webkit-optimize-contrast;
+  backface-visibility: hidden;
 }
 
 @keyframes float {
@@ -959,6 +1157,12 @@ button, .service {
   100% { transform: translateY(0); }
 }
 
+
+@media(max-width: 480px){
+  .cta-text{
+    font-size:12px;
+  }
+}
 /* Responsive Design */
 @media (max-width: 768px) {
   .devices-container {
@@ -979,6 +1183,8 @@ button, .service {
   .cta-buttons {
     justify-content: center;
   }
+  
+
 }
 
 /* PRICING CONTAINER  */
@@ -1185,11 +1391,11 @@ button, .service {
 
 .cta-button {
   width: 100%;
-  padding: 2px;
+  padding: 8px;
   background: linear-gradient(to right, #FFA500, #FF8C00);
   border-radius: 25px;
   color: black;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: bold;
   cursor: pointer;
   border: none;
@@ -1197,6 +1403,7 @@ button, .service {
   transition: all 0.3s ease;
   text-transform: uppercase;
   letter-spacing: 1px;
+  white-space: nowrap;
 }
 
 .cta-button:hover {
@@ -1279,7 +1486,7 @@ button, .service {
   border-radius: 10px;
   padding: 30px;
   margin: 80px auto;
-  max-width: 800px;
+  max-width: 900px;
   border: 1px solid #333;
   text-align: center;
 }
@@ -1361,7 +1568,7 @@ button, .service {
 /* FREE TRIAL SECTION */
 .free-trial-container {
   font-family: "Chivo", Sans-serif;
-  max-width: 1000px; /* Increased from 600px */
+  max-width: 1000px; 
   margin: 50px auto;
   padding: 40px;
   background-color: #111;
@@ -1486,12 +1693,18 @@ button, .service {
   color: #555;
 }
 
+.validation-error{
+  color:rgba(255, 0, 0, 0.527);
+  padding-top:6px;
+
+}
+
 .trial-submit-btn {
   background: linear-gradient(to right, #FFA500, #FF8C00);
   color: black;
   border: none;
-  padding: 15px;
-  font-size: 1rem;
+  padding: 12px 20px; 
+  font-size: clamp(0.75rem, 2.5vw, 1rem); 
   font-weight: bold;
   border-radius: 5px;
   cursor: pointer;
@@ -1504,6 +1717,9 @@ button, .service {
   justify-content: center;
   gap: 10px;
   transition: all 0.3s ease;
+  line-height: 17px;
+  width:auto;
+  max-width: 100%;
 }
 
 .trial-submit-btn:hover {
@@ -1574,8 +1790,11 @@ button, .service {
   }
   
   .trial-submit-btn {
-    padding: 12px;
-    font-size: 0.9rem;
+    width:100%;
+    padding: 10px 5px;
+    letter-spacing: 0.5px;
+    gap: 5px;
+
   }
  
   
@@ -1729,7 +1948,7 @@ button, .service {
   .swiper-button-prev {
     width: 40px;
     height: 40px;
-    display: none; /* Hide arrows on mobile if preferred */
+    display: none; 
   }
   
   .testimonials-container swiper-slide img {
@@ -1756,7 +1975,7 @@ button, .service {
   max-width: 1100px;
   margin: 2rem auto;
   padding: 2rem;
-  background: #1111111a; /* Dark background */
+  background: #1111111a; 
   border-radius: 12px;
 }
 
@@ -1786,7 +2005,7 @@ button, .service {
 .accordion-content {
   outline: none !important;
   box-shadow: none !important;
-  border-color: #333 !important; /* Force dark borders */
+  border-color: #333 !important; 
 }
 
 /* Specifically remove focus outlines */
@@ -1802,7 +2021,7 @@ button, .service {
 }
 
 .accordion {
-  background: #1e1e1e; /* Darker panel background */
+  background: #1e1e1e; 
   border-radius: 10px;
   overflow: hidden;
   border: 1px solid #333;
@@ -1820,7 +2039,7 @@ button, .service {
   width: 100%;
   padding: 1rem 1rem;
   text-align: left;
-  background: #111111; /* Dark header */
+  background: #111111; 
   border: none;
   color: #fff;
   font-size: 1rem;
@@ -1987,7 +2206,7 @@ button, .service {
   display: inline;
 }
 .footer-links button:hover {
-  color: #ffffff; /* or any color you want on hover */
+  color: #ffffff; 
   text-decoration: underline;
 }
 
@@ -2068,29 +2287,56 @@ button, .service {
 
 
 
+/* WhatsApp Floating Button */
+.whatsapp-float {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: #25d366;
+  color: white;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  z-index: 99999;
+  cursor: pointer;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  text-decoration: none;
+  pointer-events: auto;
+}
 
+.whatsapp-float.visible {
+  opacity: 1;
+  transform: scale(1);
+}
 
+.whatsapp-float:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
 
+.whatsapp-float img {
+  width: 35px;
+  height: 35px;
+  filter: brightness(0) invert(1);
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+@media (max-width: 768px) {
+  .whatsapp-float {
+    width: 50px;
+    height: 50px;
+    bottom: 20px;
+    right: 20px;
+  }
+  
+  .whatsapp-float img {
+    width: 30px;
+    height: 30px;
+  }
+}
 

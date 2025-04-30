@@ -1,142 +1,116 @@
 <body>
-        <header>
-            <nav class="navbar" id="home" >
-                <figure class="LineSat-logo" itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
-                    <button class="logo" data-text="Awesome" routerLink="/home">
-                        <span class="logo-text">&nbsp;LineSat&nbsp;</span>
-                        <span aria-hidden="true" class="hover-logo-text">&nbsp;LineSat&nbsp;</span>
-                    </button>
-                </figure>
+  <header>
+    <nav class="navbar" id="home">
+      <figure class="LineSat-logo" itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
+        <button class="logo" data-text="Awesome" routerLink="/home">
+          <span class="logo-text">&nbsp;LineSat&nbsp;</span>
+          <span aria-hidden="true" class="hover-logo-text">&nbsp;LineSat&nbsp;</span>
+        </button>
+      </figure>
 
-                <div class="ESSAI-container">
-                    <button class="ESSAI-button"  (click)="scrollToSection('section2')" aria-label="Try Free">
-                        <img class="button-icons" src="/lock-open.png" loading="lazy" alt="Unlock icon">
-                        <span class="button-text-wrapper">
-                            <span class="button-text">Essayez Gratuitement</span>
-                            <span class="button-text hover-text">Essayez Gratuitement</span>
-                        </span>
-                    </button>
-                </div>
-            </nav>
-        </header>
-        <section class="first-section">
+      <div class="ESSAI-container">
+        <button class="ESSAI-button" (click)="scrollToSection('section2')" aria-label="Try Free">
+          <img class="button-icons" src="/lock-open.png" loading="lazy" alt="Unlock icon">
+          <span class="button-text-essai">Essayez Gratuitement</span>
+        </button>
+      </div>
+    </nav>
+  </header>
 
-        <div class="content">
-            <p class="section-subtitle">🔓 ESSAI GRATUIT – 24H D'ACCÈS SANS ENGAGEMENT</p>
-            <h1 class="section-title">Démarrez maintenant votre expérience TV !</h1>
-            <p class="section-description">
-                Profitez de 24 heures d'accès sans carte bancaire. Testez sans risque, sans engagement.
-            </p>
-            <div class="button-container">
-                <button aria-label="Try Free 24 Hour Access" (click)="scrollToSection('section2')">
-                    <img class="button-icons" src="/lock-open.png" loading="lazy" alt="Unlock icon">
-                    <span class="button-text-wrapper">                        
-                        <span class="button-text"> ESSAI GRATUIT – 24H D'ACCÈS IMMÉDIAT</span>
-                        <span class="button-text hover-text">ESSAI GRATUIT – 24H D'ACCÈS IMMÉDIAT</span>
-                    </span>
-                </button>
-                <button aria-label="Start Streaming Now" (click)="scrollToSection('section1')">
-                    <img class="button-icons" src="/diffusion-en-direct.png" loading="lazy" alt="Stream icon">
-                    <span class="button-text-wrapper">
-                        <span class="button-text">ACCÉDEZ AU STREAMING SANS ATTENDRE !</span>
-                        <span class="button-text hover-text">ACCÉDEZ AU STREAMING SANS ATTENDRE !</span>
-                    </span>
-                </button>
-            </div>
-            <div class="services">
-                <div class="service">
-                    <img class="service-icon" src="/sablier.png">
-                    <h3>Accès Instantané</h3>
-                </div>
-                <div class="service">
-                    <img class="service-icon" src="billet-de-banque.png">
-                    <h3>Économies Importantes</h3>
-                </div>
-                <div class="service">
-                    <img class="service-icon" src="/symbole-de-film-de-camera-video.png">
-                    <h3>Qualité HD</h3>
-                </div>
-            </div>
-            
-            <p class="section-description">
-                Essayez gratuitement pendant 24 heures – Sans carte bancaire, sans risque.
-            </p>
+
+  <section class="first-section">
+
+    <div class="content">
+      <p class="section-subtitle">🔓 ESSAI GRATUIT – 24H D'ACCÈS SANS ENGAGEMENT</p>
+      <h1 class="section-title">Démarrez maintenant votre expérience TV !</h1>
+      <p class="section-description">
+        Profitez de 24 heures d'accès sans carte bancaire. Testez sans risque, sans engagement.
+      </p>
+      <div class="button-container">
+        <button aria-label="Try Free 24 Hour Access" (click)="scrollToSection('section2')">
+          <img class="button-icons" src="/lock-open.png" loading="lazy" alt="Unlock icon">
+          <span class="button-text-firstsection"> ESSAI GRATUIT – 24H D'ACCÈS IMMÉDIAT</span>
+        </button>
+        <button aria-label="Start Streaming Now" (click)="scrollToSection('section1')">
+          <img class="button-icons" src="/diffusion-en-direct.png" loading="lazy" alt="Stream icon">
+          <span class="button-text-firstsection">ACCÉDEZ AU STREAMING SANS ATTENDRE !</span>
+        </button>
+      </div>
+      <div class="services">
+        <div class="service">
+          <img class="service-icon" src="/sablier.png">
+          <h3>Accès Instantané</h3>
         </div>
-    </section>
+        <div class="service">
+          <img class="service-icon" src="billet-de-banque.png">
+          <h3>Économies Importantes</h3>
+        </div>
+        <div class="service">
+          <img class="service-icon" src="/symbole-de-film-de-camera-video.png">
+          <h3>Qualité 4K</h3>
+        </div>
+      </div>
 
-    <h2 class="swiper-title">Trending Now on IPTV</h2>
-    <!-- MOVIE SWIPER -->
-     
-    <section class="movie-swiper-section">
-        <figure class="movie-swiper-container">
-          <swiper-container 
-            #swiper 
-            init="false"
-            loop="true" 
-            autoplay="true" 
-            slides-per-view="auto"
-            slides-per-group="5" 
-            speed="2000" 
-            pause-on-mouse-enter="true"
-            autoplay-delay="100"
-            breakpoints='{
+      <p class="section-description">
+        Essayez gratuitement pendant 24 heures – Sans carte bancaire, sans risque.
+      </p>
+    </div>
+  </section>
+
+  <h2 class="swiper-title">Actuellement tendance sur IPTV</h2>
+  <!-- MOVIE SWIPER -->
+
+  <section class="movie-swiper-section">
+    <figure class="movie-swiper-container">
+      <swiper-container #swiper init="false" loop="true" autoplay="true" slides-per-view="auto" slides-per-group="5"
+        speed="2000" pause-on-mouse-enter="true" autoplay-delay="50" breakpoints='{
               "320": {"slidesPerView": 2 },
               "480": {"slidesPerView": 2 },
               "768": {"slidesPerView": 3},
               "1024": {"slidesPerView": 5},
               "1600": {"slidesPerView": 5}
             }'>
-            <swiper-slide *ngFor="let img of imageList" itemscope itemtype="https://schema.org/Movie">
-              <img [src]="img" alt="Movie poster" loading="lazy">
-            </swiper-slide>
-          </swiper-container>
-        </figure>
-      </section>
+        <swiper-slide *ngFor="let img of imageList" itemscope itemtype="https://schema.org/Movie">
+          <img [src]="img" alt="Movie poster" >
+        </swiper-slide>
+      </swiper-container>
+    </figure>
+  </section>
 
+  <section class="devices-section">
+    <div class="devices-container">
+      <div class="devices-content">
+        <h3 class="badge-label">Compatibilité Universelle</h3>
+        <h2>Fonctionne sur <span>Tous Vos Appareils</span></h2>
 
+        <ul class="features-list">
+          <li>Streaming en qualité 4K Ultra HD</li>
+          <li>Sans buffering, sans lag</li>
+          <li>Activation instantanée</li>
+          <li>Support client 24h/24</li>
+        </ul>
+        <div class="devices-btn-container">
+          <button class="devices-trial-btn" aria-label="Essai gratuit 24 heures" (click)="scrollToSection('section2')">
+            <img class="devices-btn-icon" src="/lock-open.png" loading="lazy" alt="Icône déverrouillage">
+            <span class="devices-btn-text">ESSAI GRATUIT - 24H D'ACCÈS</span>
+          </button>
+          <button class="devices-streaming-btn" aria-label="Commencer le streaming maintenant" (click)="scrollToSection('section1')">
+            <img class="devices-btn-icon" src="/diffusion-en-direct.png" loading="lazy" alt="Icône streaming">
+            <span class="devices-btn-text">STREAMING IMMÉDIAT !</span>
+          </button>
+        </div>
+      </div>
 
-<!-- New Compatible Devices Section -->
-<section class="devices-section">
-  <div class="devices-container">
-    <div class="devices-content">
-      <h3 class="badge-label">Compatibilité Universelle</h3>
-      <h2>Fonctionne sur <span>Tous Vos Appareils</span></h2>
-      
-      <ul class="features-list">
-        <li>Streaming en qualité 4K Ultra HD</li>
-        <li>Sans buffering, sans lag</li>
-        <li>Activation instantanée</li>
-        <li>Support client 24h/24</li>
-      </ul>
-      <div class="button-container">
-        <button aria-label="Essai gratuit 24 heures" (click)="scrollToSection('section2')">
-            <img class="button-icons" src="/lock-open.png" loading="lazy" alt="Icône déverrouillage">
-            <span class="button-text-wrapper">                        
-                <span class="button-text">ESSAI GRATUIT - 24H D'ACCÈS</span>
-                <span class="button-text hover-text">ESSAI GRATUIT - 24H D'ACCÈS</span>
-            </span>
-        </button>
-        <button aria-label="Commencer le streaming maintenant" (click)="scrollToSection('section1')">
-            <img class="button-icons" src="/diffusion-en-direct.png" loading="lazy" alt="Icône streaming">
-            <span class="button-text-wrapper">
-                <span class="button-text">STREAMING IMMÉDIAT !</span>
-                <span class="button-text hover-text">STREAMING IMMÉDIAT !</span>
-            </span>
-        </button>
+      <div class="devices-image">
+        <img src="television.jpg" alt="LineSat sur tous vos appareils" class="animated-device" loading="lazy">
       </div>
     </div>
-    
-    <div class="devices-image">
-      <img  src="television-phooto.webp" alt="LineSat sur tous vos appareils" 
-           class="animated-device" loading="lazy">
-    </div>
-  </div>
-</section>
-
-<!-- SECTION SEPARATRICE - GARANTIES -->
-<section class="guarantees-section">
-    <h2 class="guarantee-main-title">Pourquoi <span class="guarantee-highlight">95%</span> de Nos Clients Renouvellent ?</h2>
-<p class="guarantee-secondary-title">Découvrez ce qui rend notre service irrésistible</p>
+  </section>
+  <!-- SECTION SEPARATRICE - GARANTIES -->
+  <section class="guarantees-section">
+    <h2 class="guarantee-main-title">Pourquoi <span class="guarantee-highlight">95%</span> de Nos Clients Renouvellent ?
+    </h2>
+    <p class="guarantee-secondary-title">Découvrez ce qui rend notre service irrésistible</p>
     <div class="guarantees-container">
       <div class="guarantee-card" data-aos="fade-up">
         <div class="guarantee-icon">🚀</div>
@@ -144,14 +118,14 @@
         <p>Recevez vos identifiants par SMS/Email dans les 2 minutes après paiement</p>
         <div class="guarantee-badge">24/7</div>
       </div>
-  
+
       <div class="guarantee-card" data-aos="fade-up" data-aos-delay="150">
         <div class="guarantee-icon">🛡️</div>
         <h3>Satisfait ou Remboursé</h3>
         <p>24 heures d'essai gratuit sans engagement</p>
         <div class="guarantee-badge">Sans risque</div>
       </div>
-  
+
       <div class="guarantee-card" data-aos="fade-up" data-aos-delay="300">
         <div class="guarantee-icon">📞</div>
         <h3>Support Réactif</h3>
@@ -159,7 +133,7 @@
         <div class="guarantee-badge">95% de satisfaction</div>
       </div>
     </div>
-  
+
     <div class="section-divider">
       <div class="divider-line"></div>
       <div class="divider-icon">⭐</div>
@@ -167,59 +141,59 @@
     </div>
   </section>
 
-<!-- PRICING SECTION -->
-<section class="pricing-container" id="section1" itemscope itemtype="https://schema.org/Product">
+  <!-- PRICING SECTION -->
+  <section class="pricing-container" id="section1" itemscope itemtype="https://schema.org/Product">
     <div class="pricing-title">
-        <h1 itemprop="name">Gérer<br><span>Votre Abonnement</span></h1>
-        <p itemprop="description">Choisissez le forfait qui correspond à vos besoins de streaming.</p>
-        
+      <h1 itemprop="name">Gérer<br><span>Votre Abonnement</span></h1>
+      <p itemprop="description">Choisissez le forfait qui correspond à vos besoins de streaming.</p>
+
     </div>
 
     <div class="button-toggle" role="tablist">
-        <button [class.active]="selectedPlanType === 'individual'" (click)="selectPlanType('individual')" role="tab"
-            aria-selected="true" aria-controls="individual-plans">
-            Individuel
-        </button>
-        <button [class.active]="selectedPlanType === 'family'" (click)="selectPlanType('family')" role="tab"
-            aria-selected="false" aria-controls="family-plans">
-            Famille – Économisez 40&nbsp;%
-        </button>
+      <button [class.active]="selectedPlanType === 'individual'" (click)="selectPlanType('individual')" role="tab"
+        aria-selected="true" aria-controls="individual-plans">
+        Individuel
+      </button>
+      <button [class.active]="selectedPlanType === 'family'" (click)="selectPlanType('family')" role="tab"
+        aria-selected="false" aria-controls="family-plans">
+        Famille – Économisez 40&nbsp;%
+      </button>
     </div>
-    
+
 
     <div class="plans-container">
-        <article *ngFor="let plan of plans" class="plan-card" [class.popular]="plan.isPopular" itemprop="offers"
-            itemscope itemtype="https://schema.org/Offer">
-            <div class="discount">{{ plan.discountText }}</div>
-            <div class="plan-header">
-                <h3>{{ plan.title }}</h3>
-                <div class="price-section">
-                    <div class="current-price">
-                        <span class="amount">{{ plan.price }}</span>
-                        <span class="duration">{{ plan.duration }}</span>
-                    </div>
-                    <div class="description">{{ plan.description }}</div>
-                </div>
+      <article *ngFor="let plan of plans" class="plan-card" [class.popular]="plan.isPopular" itemprop="offers" itemscope
+        itemtype="https://schema.org/Offer">
+        <div class="discount">{{ plan.discountText }}</div>
+        <div class="plan-header">
+          <h3>{{ plan.title }}</h3>
+          <div class="price-section">
+            <div class="current-price">
+              <span class="amount">{{ plan.price }}</span>
+              <span class="duration">{{ plan.duration }}</span>
             </div>
+            <div class="description">{{ plan.description }}</div>
+          </div>
+        </div>
 
-            <div class="plan-features">
-                <ul>
-                    <li *ngFor="let feature of plan.features">{{ feature }}</li>
-                </ul>
-            </div>
-            <div class="full-width-divider"></div>
+        <div class="plan-features">
+          <ul>
+            <li *ngFor="let feature of plan.features">{{ feature }}</li>
+          </ul>
+        </div>
+        <div class="full-width-divider"></div>
 
-            <button class="cta-button" (click)="goToCheckout(plan)">
-                <span class="cta-text">{{ plan.ctaText }}</span>
-            </button>
-        </article>
+        <button class="cta-button" (click)="goToCheckout(plan)">
+          <span class="cta-text">{{ plan.ctaText }}</span>
+        </button>
+      </article>
     </div>
-</section>
+  </section>
 
-<!-- Payment Methods Section -->
-<div class="payment-methods-section">
+  <!-- Payment Methods Section -->
+  <div class="payment-methods-section">
     <p class="payment-methods-title">Paiements 100% Sécurisés</p>
-    
+
     <div class="payment-methods-grid">
       <!-- Credit Cards -->
       <div class="payment-method">
@@ -231,7 +205,13 @@
       <div class="payment-method">
         <img src="/American-Express-Color.png" alt="American Express" loading="lazy">
       </div>
-      
+      <div class="payment-method">
+        <img src="/ria.png" alt="American Express" loading="lazy">
+      </div>
+      <div class="payment-method">
+        <img src="/Western-Union-Logo.png" alt="American Express" loading="lazy">
+      </div>
+
       <!-- Digital Wallets -->
       <div class="payment-method">
         <img src="/paypal-photo.png" alt="PayPal" loading="lazy">
@@ -243,96 +223,94 @@
         <img src="/apple-pay.png" alt="Apple Pay" loading="lazy">
       </div>
     </div>
-    
+
     <div class="payment-security">
       <span class="security-icon">🛡️</span>
       <span>Transactions cryptées - Aucune donnée bancaire stockée</span>
     </div>
-  </div>    
-  
-    <!-- Free Trial Section -->
-    <section class="free-trial-container" id="free-trial" id="section2">
-        <div class="free-trial-header">
-          <h2>DÉMARREZ VOTRE <span>ESSAI GRATUIT DE 24 HEURES</span></h2>
-          <p>Aucune carte de crédit requise. Accédez à toutes les fonctionnalités.</p>          
+  </div>
+
+  <!-- Free Trial Section -->
+  <section class="free-trial-container" id="free-trial" id="section2">
+    <div class="free-trial-header">
+      <h2>DÉMARREZ VOTRE <span>ESSAI GRATUIT DE 24 HEURES</span></h2>
+      <p>Aucune carte de crédit requise. Accédez à toutes les fonctionnalités.</p>
+    </div>
+
+    <div class="trial-content-wrapper">
+      <div class="trial-highlights">
+        <h3>Votre Essai <span class="orange-text">VIP 24h</span> Vous Attend</h3>
+
+        <div class="highlight-item">
+          <p class="highlight-text">Découvrez la qualité &nbsp; <strong> ultra HD</strong> sans compression</p>
+          <div class="highlight-divider"></div>
         </div>
-      
-        <div class="trial-content-wrapper">
-          <div class="trial-highlights">
-            <h3>Votre Essai <span class="orange-text">VIP 24h</span> Vous Attend</h3>
-            
-            <div class="highlight-item">
-              <p class="highlight-text">Découvrez la qualité &nbsp; <strong> ultra HD</strong> sans compression</p>
-              <div class="highlight-divider"></div>
-            </div>
-            
-            <div class="highlight-item">
-              <p class="highlight-text"><strong>Zéro engagement</strong> - profitez sans contrainte</p>
-              <div class="highlight-divider"></div>
-            </div>
-            
-            <div class="highlight-item">
-              <p class="highlight-text">Notre <strong>best-seller</strong> testé par 85% des nouveaux abonnés</p>
-            </div>
+
+        <div class="highlight-item">
+          <p class="highlight-text"><strong>Zéro engagement</strong> - profitez sans contrainte</p>
+          <div class="highlight-divider"></div>
+        </div>
+
+        <div class="highlight-item">
+          <p class="highlight-text">Notre <strong>best-seller</strong> testé par 85% des nouveaux abonnés</p>
+        </div>
+      </div>
+
+      <form class="free-trial-form" id="trialForm" #freeTrialForm="ngForm"
+        (ngSubmit)="freeTrialForm.valid && requestFreeTrial(freeTrialForm)" itemprop="target" itemscope
+        itemtype="https://schema.org/EntryPoint">
+
+        <div class="form-group">
+          <label for="trialFirstName">Prénom</label>
+          <input class="custom-input" id="trialFirstName" [(ngModel)]="freeTrialData.firstName" name="trialFirstName"
+            placeholder="Votre prénom" required #firstNameInput="ngModel" itemprop="givenName">
+          <div *ngIf="firstNameInput.invalid && (firstNameInput.dirty || firstNameInput.touched)"
+            class="validation-error">
+            Le prénom est requis.
           </div>
-      
-          <form class="free-trial-form" id="trialForm" #freeTrialForm="ngForm" 
-      (ngSubmit)="freeTrialForm.valid && requestFreeTrial()" 
-      itemprop="target" itemscope itemtype="https://schema.org/EntryPoint">
-
-  <div class="form-group">
-    <label for="firstName">Prénom</label>
-    <input class="custom-input" id="trialFirstName" [(ngModel)]="freeTrialData.firstName" name="trialFirstName"
-           placeholder="Votre prénom" required #firstNameInput="ngModel" itemprop="givenName">
-    <div *ngIf="firstNameInput.invalid && (firstNameInput.dirty || firstNameInput.touched)" class="validation-error">
-      Le prénom est requis.
-    </div>
-  </div>
-
-  <div class="form-group">
-    <label for="trialPhone">Numéro WhatsApp</label>
-    <input class="custom-input" id="trialPhone" [(ngModel)]="freeTrialData.whatsappNumber" name="trialPhone"
-           type="tel" placeholder="Ex. : +353 123 456 789" required #phoneInput="ngModel" itemprop="telephone">
-    <div *ngIf="phoneInput.invalid && (phoneInput.dirty || phoneInput.touched)" class="validation-error">
-      Le numéro WhatsApp est requis.
-    </div>
-  </div>
-
-  <div class="form-group">
-    <label for="trialCountry">Pays</label>
-    <input class="custom-input" id="trialCountry" [(ngModel)]="freeTrialData.country" name="trialCountry"
-           type="text" placeholder="Votre pays" required #countryInput="ngModel" itemprop="addressCountry">
-    <div *ngIf="countryInput.invalid && (countryInput.dirty || countryInput.touched)" class="validation-error">
-      Le pays est requis.
-    </div>
-  </div>
-
-  <div class="form-group">
-    <label for="trialEmail">Adresse mail</label>
-    <input class="custom-input" id="trialEmail" [(ngModel)]="freeTrialData.email" name="trialEmail"
-           type="email" placeholder="Votre adresse e-mail" required email #emailInput="ngModel" itemprop="email">
-    <div *ngIf="emailInput.invalid && (emailInput.dirty || emailInput.touched)" class="validation-error">
-      Veuillez entrer une adresse e-mail valide.
-    </div>
-  </div>
-
-
-            
-            <button type="submit" class="trial-submit-btn" type="submit" [disabled]="isSubmittingTrial || freeTrialForm.invalid" itemprop="name">
-              <span *ngIf="!isSubmittingTrial">UNLOCK FREE 24H TRIAL</span>
-              <span *ngIf="isSubmittingTrial">REQUESTING...</span>
-
-            </button>
-            <div *ngIf="trialSubmissionStatus !== 'none' && trialSubmissionStatus !== 'pending'" class="submission-message"
-            [ngClass]="{'success': trialSubmissionStatus === 'success', 'error': trialSubmissionStatus === 'error'}">
-         {{ trialResponseMessage }}
-       </div>
-          </form>
         </div>
-      </section>
 
-       <!-- ACCODIONS -->
-   <section class="Accodions" >
+        <div class="form-group">
+          <label for="trialPhone">Numéro WhatsApp</label>
+          <input class="custom-input" id="trialPhone" [(ngModel)]="freeTrialData.whatsappNumber" name="trialPhone"
+            type="tel" placeholder="Ex. : +353 123 456 789" required #phoneInput="ngModel" itemprop="telephone">
+          <div *ngIf="phoneInput.invalid && (phoneInput.dirty || phoneInput.touched)" class="validation-error">
+            Le numéro WhatsApp est requis.
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="trialCountry">Pays</label>
+          <input class="custom-input" id="trialCountry" [(ngModel)]="freeTrialData.country" name="trialCountry"
+            type="text" placeholder="Votre pays" required #countryInput="ngModel" itemprop="addressCountry">
+          <div *ngIf="countryInput.invalid && (countryInput.dirty || countryInput.touched)" class="validation-error">
+            Le pays est requis.
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="trialEmail">Adresse mail</label>
+          <input class="custom-input" id="trialEmail" [(ngModel)]="freeTrialData.email" name="trialEmail" type="email"
+            placeholder="Votre adresse e-mail" required email #emailInput="ngModel" itemprop="email">
+          <div *ngIf="emailInput.invalid && (emailInput.dirty || emailInput.touched)" class="validation-error">
+            Veuillez entrer une adresse e-mail valide.
+          </div>
+        </div>
+        <button type="submit" class="trial-submit-btn" type="submit"
+          [disabled]="isSubmittingTrial || freeTrialForm.invalid" itemprop="name">
+          <span *ngIf="!isSubmittingTrial">DÉBLOQUER L'ESSAI GRATUIT DE 24H</span>
+          <span *ngIf="isSubmittingTrial">ENVOI EN COURS...</span>
+        </button>
+        <div *ngIf="trialSubmissionStatus !== 'none' && trialSubmissionStatus !== 'pending'" class="submission-message"
+          [ngClass]="{'success': trialSubmissionStatus === 'success', 'error': trialSubmissionStatus === 'error'}">
+          {{ trialResponseMessage }}
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- ACCODIONS -->
+  <section class="Accodions">
     <header class="Accodions-header" id="FAQ">
       <h3>Support client 5 étoiles</h3>
       <h1>Foire Aux Questions (FAQ)</h1>
@@ -346,37 +324,47 @@
         </button>
         <div class="accordion-content" [class.open]="isOpen1">
           <p>
-            LineSat est le meilleur fournisseur IPTV en France et en Europe, propulsé par une technologie IA de pointe. Nous ne sommes
-            pas un simple service IPTV - nous proposons plus de 50 000 chaînes et 120 000 films et séries du monde entier,
+            LineSat est le meilleur fournisseur IPTV en France et en Europe, propulsé par une technologie IA de pointe.
+            Nous ne sommes
+            pas un simple service IPTV - nous proposons plus de 50 000 chaînes et 120 000 films et séries du monde
+            entier,
             incluant les États-Unis, le Royaume-Uni, la France et bien plus.
           </p>
           <br>
           <p>
-            Fini les buffering. LineSat IPTV est fluide, rapide et parfait pour les matchs en direct grâce à notre technologie IA qui garantit une diffusion sans interruption.
+            Fini les buffering. LineSat IPTV est fluide, rapide et parfait pour les matchs en direct grâce à notre
+            technologie IA qui garantit une diffusion sans interruption.
           </p>
           <br>
           <p>
-            Support client 24/7 ? Nous avons 20 agents prêts à vous aider pour tout besoin - configuration de votre box IPTV, dépannage ou réponses à vos questions.
+            Support client 24/7 ? Nous avons 20 agents prêts à vous aider pour tout besoin - configuration de votre box
+            IPTV, dépannage ou réponses à vos questions.
           </p>
           <br>
           <p>
-            Vous voulez essayer ? Commencez avec notre essai gratuit IPTV et découvrez pourquoi nous sommes le meilleur service IPTV en France et en Europe.
+            Vous voulez essayer ? Commencez avec notre essai gratuit IPTV et découvrez pourquoi nous sommes le meilleur
+            service IPTV en France et en Europe.
           </p>
           <br>
           <p>
-            <strong>TV en direct</strong> : Regardez du sport, des infos, des films et des chaînes internationales du monde entier. Que vous soyez en France, en Europe ou ailleurs, nous vous couvrons avec la meilleure expérience IPTV.
+            <strong>TV en direct</strong> : Regardez du sport, des infos, des films et des chaînes internationales du
+            monde entier. Que vous soyez en France, en Europe ou ailleurs, nous vous couvrons avec la meilleure
+            expérience IPTV.
           </p>
           <br>
           <p>
-            <strong>Vidéo à la demande (VOD)</strong> : Profitez de contenus Hollywood, Bollywood et style Netflix quand vous voulez. Pas d'attente - cliquez et regardez avec notre service IPTV.
+            <strong>Vidéo à la demande (VOD)</strong> : Profitez de contenus Hollywood, Bollywood et style Netflix quand
+            vous voulez. Pas d'attente - cliquez et regardez avec notre service IPTV.
           </p>
           <br>
           <p>
-            <strong>Catch-Up & Time-Shifted TV</strong> : Vous avez raté une émission ? Pas de problème. Avec notre abonnement IPTV, vous pouvez regarder quand vous voulez, même si vous avez manqué la diffusion en direct.
+            <strong>Catch-Up & Time-Shifted TV</strong> : Vous avez raté une émission ? Pas de problème. Avec notre
+            abonnement IPTV, vous pouvez regarder quand vous voulez, même si vous avez manqué la diffusion en direct.
           </p>
           <br>
           <p>
-            <strong>Couverture mondiale</strong> : En France, en Europe ou où que vous soyez, LineSat IPTV fonctionne sans restrictions géographiques. Regardez le meilleur IPTV n'importe où avec le meilleur fournisseur IPTV.
+            <strong>Couverture mondiale</strong> : En France, en Europe ou où que vous soyez, LineSat IPTV fonctionne
+            sans restrictions géographiques. Regardez le meilleur IPTV n'importe où avec le meilleur fournisseur IPTV.
           </p>
         </div>
       </article>
@@ -390,17 +378,21 @@
         </button>
         <div class="accordion-content" [class.open]="isOpen2">
           <p>
-            <strong>L'IPTV (Internet Protocol Television)</strong> diffuse des contenus télévisés via internet, vous permettant de streamer vos chaînes préférées et contenus à la demande sans dépendre des connexions câble ou satellite obsolètes.
+            <strong>L'IPTV (Internet Protocol Television)</strong> diffuse des contenus télévisés via internet, vous
+            permettant de streamer vos chaînes préférées et contenus à la demande sans dépendre des connexions câble ou
+            satellite obsolètes.
           </p>
           <br>
           <ol>
             <li>Obtenez un abonnement IPTV avec LineSat</li>
             <li>
               Contactez un de nos agents via <a>WhatsApp</a>, <strong>email</strong> ou directement sur notre site.
-              Ils vous guideront dans le processus d'installation pour que <strong>LineSat IPTV</strong> fonctionne sur votre appareil - <strong>sans stress, sans complication</strong>.
+              Ils vous guideront dans le processus d'installation pour que <strong>LineSat IPTV</strong> fonctionne sur
+              votre appareil - <strong>sans stress, sans complication</strong>.
             </li>
             <li>
-              Et voilà ! Ça marche. Profitez du visionnage sur n'importe quel appareil. Si vous avez besoin d'aide, nos agents sont disponibles à tout moment. Contactez-les ici :
+              Et voilà ! Ça marche. Profitez du visionnage sur n'importe quel appareil. Si vous avez besoin d'aide, nos
+              agents sont disponibles à tout moment. Contactez-les ici :
               <ul>
                 <br>
                 <li><a><strong>WhatsApp</strong></a>: +212 636-863840</li>
@@ -410,7 +402,9 @@
           </ol>
           <br>
           <p>
-            Que vous cherchiez le meilleur abonnement IPTV en France ou simplement un service IPTV fiable, LineSat vous offre la meilleure expérience IPTV du marché. C'est la télévision, mais plus intelligente, plus rapide et meilleure.
+            Que vous cherchiez le meilleur abonnement IPTV en France ou simplement un service IPTV fiable, LineSat vous
+            offre la meilleure expérience IPTV du marché. C'est la télévision, mais plus intelligente, plus rapide et
+            meilleure.
           </p>
         </div>
       </article>
@@ -424,7 +418,9 @@
         </button>
         <div class="accordion-content" [class.open]="isOpen3">
           <p>
-            Vivez la meilleure expérience IPTV avec LineSat ! Nous proposons les meilleurs prix et les meilleurs plans d'abonnement IPTV conçus pour vos besoins. Achetez IPTV aujourd'hui et profitez de contenus HD & 4K sans frais cachés.
+            Vivez la meilleure expérience IPTV avec LineSat ! Nous proposons les meilleurs prix et les meilleurs plans
+            d'abonnement IPTV conçus pour vos besoins. Achetez IPTV aujourd'hui et profitez de contenus HD & 4K sans
+            frais cachés.
           </p>
           <br>
           <a>Forfait Basique 69€/an (12 mois + 2 mois offerts = 14 mois au total)</a>
@@ -453,11 +449,13 @@
         </button>
         <div class="accordion-content" [class.open]="isOpen4">
           <p>
-            Absolument ! Profitez d'un essai IPTV gratuit de 24h sans carte bancaire requise. Testez l'IPTV gratuitement et commencez à streamer immédiatement.
+            Absolument ! Profitez d'un essai IPTV gratuit de 24h sans carte bancaire requise. Testez l'IPTV gratuitement
+            et commencez à streamer immédiatement.
           </p>
           <br>
           <p>
-            Nous configurerons facilement l'IPTV avec des apps comme MYTVOnline2, Tivimate ou VuPlayer. Vous pouvez même utiliser Xtream Codes ou IboProPlayer pour commencer rapidement.
+            Nous configurerons facilement l'IPTV avec des apps comme MYTVOnline2, Tivimate ou VuPlayer. Vous pouvez même
+            utiliser Xtream Codes ou IboProPlayer pour commencer rapidement.
           </p>
           <br>
           <p>
@@ -465,7 +463,8 @@
           </p>
           <br>
           <p>
-            <strong>Contactez-nous par email, <a>WhatsApp</a> ou directement sur le site</strong>, et nous configurerons votre <strong>essai IPTV sans complication</strong>.
+            <strong>Contactez-nous par email, <a>WhatsApp</a> ou directement sur le site</strong>, et nous configurerons
+            votre <strong>essai IPTV sans complication</strong>.
           </p>
           <br>
           <p>
@@ -483,11 +482,13 @@
         </button>
         <div class="accordion-content" [class.open]="isOpen5">
           <p>
-            Non, avec LineSat IPTV, nos tarifs sont 100% transparents - aucun frais caché. Le coût de l'abonnement couvre toutes les fonctionnalités et services, vous offrant une expérience IPTV sûre et fiable.
+            Non, avec LineSat IPTV, nos tarifs sont 100% transparents - aucun frais caché. Le coût de l'abonnement
+            couvre toutes les fonctionnalités et services, vous offrant une expérience IPTV sûre et fiable.
           </p>
           <br>
           <p>
-            Nous vous proposons un IPTV légal, fiable et de qualité sans complications. Profitez d'une expérience de streaming fluide et sans souci à chaque utilisation.
+            Nous vous proposons un IPTV légal, fiable et de qualité sans complications. Profitez d'une expérience de
+            streaming fluide et sans souci à chaque utilisation.
           </p>
         </div>
       </article>
@@ -501,7 +502,8 @@
         </button>
         <div class="accordion-content" [class.open]="isOpen6">
           <p>
-            LineSat IPTV fonctionne parfaitement sur une large gamme d'appareils, vous permettant de profiter de vos contenus préférés sans interruption. Voici quelques-uns des appareils supportés :
+            LineSat IPTV fonctionne parfaitement sur une large gamme d'appareils, vous permettant de profiter de vos
+            contenus préférés sans interruption. Voici quelques-uns des appareils supportés :
           </p>
           <p><strong>Appareils Apple</strong> : Apple TV, iPhone, iPad (système iOS)</p>
           <br>
@@ -515,10 +517,12 @@
           <br>
           <p><strong>Consoles de jeux</strong> : PlayStation, Xbox</p>
           <br>
-          <p><strong>Smart TVs</strong> : Compatible avec toutes les principales marques comme Samsung, LG, Sony, etc.</p>
+          <p><strong>Smart TVs</strong> : Compatible avec toutes les principales marques comme Samsung, LG, Sony, etc.
+          </p>
           <br>
           <p>
-            Quel que soit votre appareil, LineSat IPTV rend facile le streaming de contenus haute qualité où que vous soyez. Commencez à regarder aujourd'hui sur votre appareil préféré !
+            Quel que soit votre appareil, LineSat IPTV rend facile le streaming de contenus haute qualité où que vous
+            soyez. Commencez à regarder aujourd'hui sur votre appareil préféré !
           </p>
         </div>
       </article>
@@ -532,11 +536,14 @@
         </button>
         <div class="accordion-content" [class.open]="isOpen7">
           <p>
-            C'est simple. Avant l'expiration de votre abonnement IPTV, vous recevrez une notification avec des instructions de renouvellement faciles à suivre. Pas de renouvellement automatique ici - vous gardez le contrôle.
+            C'est simple. Avant l'expiration de votre abonnement IPTV, vous recevrez une notification avec des
+            instructions de renouvellement faciles à suivre. Pas de renouvellement automatique ici - vous gardez le
+            contrôle.
           </p>
           <br>
           <p>
-            Si vous adorez notre service IPTV et souhaitez continuer à profiter du meilleur IPTV, suivez simplement les étapes. Sinon, vous êtes libre de résilier - le choix vous appartient.
+            Si vous adorez notre service IPTV et souhaitez continuer à profiter du meilleur IPTV, suivez simplement les
+            étapes. Sinon, vous êtes libre de résilier - le choix vous appartient.
           </p>
         </div>
       </article>
@@ -550,7 +557,9 @@
         </button>
         <div class="accordion-content" [class.open]="isOpen8">
           <p>
-            LineSat IPTV fonctionne parfaitement avec toutes les applications de lecture IPTV, vous permettant de profiter des contenus IPTV en France sans problème. Parmi les meilleures options : (IBO PRO PLAYER fortement recommandé)
+            LineSat IPTV fonctionne parfaitement avec toutes les applications de lecture IPTV, vous permettant de
+            profiter des contenus IPTV en France sans problème. Parmi les meilleures options : (IBO PRO PLAYER fortement
+            recommandé)
           </p>
           <br>
           <ul>
@@ -568,7 +577,8 @@
           <p>etc...</p>
           <br>
           <p>
-            Choisissez celle qui convient à votre appareil et commencez avec votre abonnement IPTV. Que vous streamiez depuis votre smartphone, smart TV ou box, nous vous couvrons.
+            Choisissez celle qui convient à votre appareil et commencez avec votre abonnement IPTV. Que vous streamiez
+            depuis votre smartphone, smart TV ou box, nous vous couvrons.
           </p>
         </div>
       </article>
@@ -582,7 +592,8 @@
         </button>
         <div class="accordion-content" [class.open]="isOpen9">
           <p>
-            Absolument ! Lorsque vous achetez votre abonnement IPTV, nous fournissons tous les détails de connexion pour commencer, incluant :
+            Absolument ! Lorsque vous achetez votre abonnement IPTV, nous fournissons tous les détails de connexion pour
+            commencer, incluant :
           </p>
           <br>
           <ul>
@@ -592,7 +603,8 @@
           </ul>
           <br>
           <p>
-            Ceci garantit une compatibilité totale avec IBO PRO PLAYER, Tivimate, myTVonline2, IPTV Smarters, IPTV Smarters Pro ou toute autre app IPTV de votre choix, pour un streaming sans complication.
+            Ceci garantit une compatibilité totale avec IBO PRO PLAYER, Tivimate, myTVonline2, IPTV Smarters, IPTV
+            Smarters Pro ou toute autre app IPTV de votre choix, pour un streaming sans complication.
           </p>
         </div>
       </article>
@@ -613,11 +625,13 @@
             Pour le multi-appareils simultané, choisissez un forfait adapté comme :
           </p>
           <br>
-          <p><a>Forfait Populaire</a>/ <a>Forfait Premium</a>/<a>Forfait À Vie</a> - Ces options offrent plus de flexibilité :</p>
+          <p><a>Forfait Populaire</a>/ <a>Forfait Premium</a>/<a>Forfait À Vie</a> - Ces options offrent plus de
+            flexibilité :</p>
           <br>
           <p>Utilisez un compte pendant 28 mois et regardez sur deux TV (mais pas en même temps).</p>
           <br>
-          <p>OU <strong>divisez la durée d'abonnement en 2 ou 3 parties</strong> pour regarder sur plusieurs appareils simultanément.</p>
+          <p>OU <strong>divisez la durée d'abonnement en 2 ou 3 parties</strong> pour regarder sur plusieurs appareils
+            simultanément.</p>
           <br>
           <p>
             Ainsi, vous personnalisez votre forfait selon vos besoins !
@@ -634,11 +648,14 @@
         </button>
         <div class="accordion-content" [class.open]="isOpen11">
           <p>
-            Nous offrons une <strong>garantie satisfait ou remboursé de 120 jours</strong>. Si vous n'êtes pas satisfait de votre <strong>abonnement IPTV</strong> durant cette période, vous obtenez un <strong>remboursement intégral - sans justification</strong>.
+            Nous offrons une <strong>garantie satisfait ou remboursé de 120 jours</strong>. Si vous n'êtes pas satisfait
+            de votre <strong>abonnement IPTV</strong> durant cette période, vous obtenez un <strong>remboursement
+              intégral - sans justification</strong>.
           </p>
           <br>
           <p>
-            C'est ainsi que nous garantissons notre service IPTV et vous offrons la <strong>satisfaction garantie</strong> que vous méritez.
+            C'est ainsi que nous garantissons notre service IPTV et vous offrons la <strong>satisfaction
+              garantie</strong> que vous méritez.
           </p>
         </div>
       </article>
@@ -652,7 +669,8 @@
         </button>
         <div class="accordion-content" [class.open]="isOpen12">
           <p>
-            <strong>EPG = Electronic Program Guide (Guide des Programmes Électronique)</strong>. C'est une fonctionnalité de planning TV qui vous permet de :
+            <strong>EPG = Electronic Program Guide (Guide des Programmes Électronique)</strong>. C'est une
+            fonctionnalité de planning TV qui vous permet de :
           </p>
           <br>
           <ul>
@@ -680,7 +698,8 @@
           </p>
           <br>
           <p>
-            Notre fonction Catch-Up TV vous permet de revenir en arrière et regarder des programmes passés sur certaines chaînes.
+            Notre fonction Catch-Up TV vous permet de revenir en arrière et regarder des programmes passés sur certaines
+            chaînes.
           </p>
           <br>
           <p>Remontez jusqu'à <strong>7 jours en arrière</strong></p>
@@ -702,7 +721,9 @@
         </button>
         <div class="accordion-content" [class.open]="isOpen14">
           <p>
-            Nous fournissons un <strong>support client 24/7</strong> grâce à notre équipe de plus de <strong>20 professionnels</strong>. Que vous ayez besoin d'aide pour <strong>configurer votre IPTV</strong> ou pour tout problème technique, nous sommes là pour vous <strong>à tout moment, où que vous soyez</strong>.
+            Nous fournissons un <strong>support client 24/7</strong> grâce à notre équipe de plus de <strong>20
+              professionnels</strong>. Que vous ayez besoin d'aide pour <strong>configurer votre IPTV</strong> ou pour
+            tout problème technique, nous sommes là pour vous <strong>à tout moment, où que vous soyez</strong>.
           </p>
         </div>
       </article>
@@ -743,8 +764,10 @@
           </p>
           <br>
           <ul>
-            <li><strong>Option 1</strong> : <u>Continuer à gaspiller de l'argent avec des fournisseurs IPTV peu fiables</u> qui buffèrent, plantent et gâchent votre expérience.</li>
-            <li><strong>Option 2</strong> : Passez à <u>LineSat IPTV et streamer comme un roi</u> - sans limites, sans stress et sans complications.</li>
+            <li><strong>Option 1</strong> : <u>Continuer à gaspiller de l'argent avec des fournisseurs IPTV peu
+                fiables</u> qui buffèrent, plantent et gâchent votre expérience.</li>
+            <li><strong>Option 2</strong> : Passez à <u>LineSat IPTV et streamer comme un roi</u> - sans limites, sans
+              stress et sans complications.</li>
           </ul>
           <br>
           <p>
@@ -752,7 +775,8 @@
           </p>
           <br>
           <p>
-            Commencez maintenant et vivez la meilleure expérience IPTV en France et en Europe ! Ne vous contentez plus d'une <strong>box douteuse ou d'un streaming aléatoire</strong>.
+            Commencez maintenant et vivez la meilleure expérience IPTV en France et en Europe ! Ne vous contentez plus
+            d'une <strong>box douteuse ou d'un streaming aléatoire</strong>.
           </p>
           <br>
           <p>
@@ -772,64 +796,57 @@
     </div>
     <div class="testimonials-grid">
       <div class="testimonials-slider">
-        <swiper-container 
-          loop="true" 
-          space-between="30" 
-          slides-per-view="auto" 
-          autoplay="true" 
-          autoplay-delay="4000"
-          pagination="true"
-          breakpoints='{"640": {"slidesPerView": 2}, "1024": {"slidesPerView": 3}}'
-        >
+        <swiper-container loop="true" space-between="30" slides-per-view="auto" autoplay="true" autoplay-delay="4000"
+          pagination="true" breakpoints='{"640": {"slidesPerView": 2}, "1024": {"slidesPerView": 3}}'>
           <!-- Testimonial 1 -->
           <swiper-slide>
             <div class="testimonial-img-container">
               <img src="/testimonials/testi8.webp" alt="Avis client LineSat - 5 étoiles" loading="lazy">
             </div>
           </swiper-slide>
-          
+
           <!-- Testimonial 2 -->
           <swiper-slide>
             <div class="testimonial-img-container">
               <img src="/testimonials/testi7.webp" alt="Avis client LineSat - 4 étoiles" loading="lazy">
             </div>
           </swiper-slide>
-          
+
           <!-- Testimonial 3 -->
           <swiper-slide>
             <div class="testimonial-img-container">
               <img src="/testimonials/testi6.webp" alt="Avis client LineSat - 5 étoiles" loading="lazy">
             </div>
           </swiper-slide>
-          
+
           <!-- Testimonial 4 -->
           <swiper-slide>
             <div class="testimonial-img-container">
               <img src="/testimonials/testi5.webp" alt="Avis client LineSat - 5 étoiles" loading="lazy">
             </div>
           </swiper-slide>
-          
+
           <!-- Testimonial 5 -->
           <swiper-slide>
             <div class="testimonial-img-container">
               <img src="/testimonials/testi4.webp" alt="Avis client LineSat - 5 étoiles" loading="lazy">
             </div>
           </swiper-slide>
-          
+
           <!-- Testimonial 6 -->
           <swiper-slide>
             <div class="testimonial-img-container">
               <img src="/testimonials/testi3.webp" alt="Avis client LineSat - 4 étoiles" loading="lazy">
             </div>
           </swiper-slide>
-          
+
           <!-- Testimonial 7 -->
           <swiper-slide>
             <div class="testimonial-img-container">
               <img src="/testimonials/testi2.webp" alt="Avis client LineSat - 4 étoiles" loading="lazy">
             </div>
           </swiper-slide>
-          
+
           <!-- Testimonial 8 -->
           <swiper-slide>
             <div class="testimonial-img-container">
@@ -839,11 +856,11 @@
         </swiper-container>
       </div>
     </div>
-    
+
     <!-- Indicateurs de confiance -->
     <div class="trust-badges">
       <div class="trust-item">
-        <span class="trust-count">10 000+</span>
+        <span class="trust-count">+ 10 000</span>
         <span class="trust-label">Utilisateurs satisfaits</span>
       </div>
       <div class="trust-item">
@@ -857,74 +874,21 @@
     </div>
   </section>
 
-  
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </body>
 
 <footer class="site-footer">
   <div class="footer-container">
-    
+
     <!-- Brand Column -->
     <div class="footer-brand">
       <h3 class="footer-logo">LineSat</h3>
       <p class="footer-tagline">Premium IPTV for the modern viewer</p>
-      
+
       <div class="social-links">
-        <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
-        <a href="#" class="social-icon"><i class="fab fa-telegram"></i></a>
-        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+        <a href="https://wa.me/447456435056" class="social-icon"><i class="fab fa-whatsapp"></i></a>
       </div>
     </div>
-    
+
     <!-- Quick Links -->
     <div class="footer-column">
       <h4 class="footer-title">Quick Links</h4>
@@ -934,8 +898,8 @@
         <li><button (click)="scrollToSection('FAQ')">FAQ</button></li>
       </ul>
     </div>
-    
-    
+
+
     <!-- Contact -->
     <div class="footer-column">
       <h4 class="footer-title">Contact Us</h4>
@@ -947,15 +911,15 @@
             <i class="fab fa-whatsapp"></i>&nbsp;&nbsp; (+44) 745-643-5056
           </a>
         </li>
-        
+
       </ul>
     </div>
-    
+
   </div>
-  
+
   <!-- Copyright -->
   <div class="footer-bottom">
-    <p>&copy; 2025 LineSat. All rights reserved.</p>
+    <p>&copy; 2025 LineSat. Tous droits réservés.</p>
     <div class="payment-methods">
       <img src="/images.jpeg" alt="Visa" width="40" loading="lazy">
       <img src="/mastercard.png" alt="Mastercard" width="40" loading="lazy">
@@ -966,5 +930,9 @@
   </div>
 </footer>
 
-
-
+<section>
+  <!-- WhatsApp Floating Button -->
+  <a href="https://wa.me/447456435056" target="_blank" class="whatsapp-float" id="whatsappButton">
+    <img src="/whatsapp.png" alt="WhatsApp" loading="lazy">
+  </a>
+  </section>

@@ -1,10 +1,10 @@
-import { CommonModule } from '@angular/common';
-import { Component, CUSTOM_ELEMENTS_SCHEMA, ElementRef, ViewChild } from '@angular/core';
+import { CommonModule, NgOptimizedImage } from '@angular/common';
+import { Component, CUSTOM_ELEMENTS_SCHEMA, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { register } from 'swiper/element';
 import { PlanService } from '../../Services/PlanService';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
 import { FreeTrialService, FreeTrialResponse } from '../../Services/free-trial.service';
 
 
@@ -30,7 +30,7 @@ register();
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 
 })
-export class HeroComponent {
+export class HeroComponent implements OnInit {
 
   constructor(
     private http: HttpClient,
@@ -41,7 +41,7 @@ export class HeroComponent {
   
   @ViewChild('swiper') swiperEl!: ElementRef;
 
-  imageList: string[] = Array.from({ length: 50 }, (_, i) => `/swiper-movies/movie${i + 1}.jpg`);
+  imageList: string[] = Array.from({ length: 50 }, (_, i) => `/swiper-movies/movie${i + 1}.webp`);
 
 
   ngAfterViewInit(){
@@ -97,7 +97,7 @@ selectPlanType(type: 'individual' | 'family' ) {
           'Fonction de rattrapage (Catch Up)',
           'Assistance 24h/24 et 7j/7',
           'Contenu adulte en option',
-          'Garantie de remboursement sous 120 jours'
+          'Garantie de remboursement sous 10 jours'
         ],
         ctaText: 'Rejoindre le forfait basique',
         planType: 'individual'
@@ -119,7 +119,7 @@ selectPlanType(type: 'individual' | 'family' ) {
           'Fonction de rattrapage (Catch Up)',
           'Assistance 24h/24 et 7j/7',
           'Contenu adulte en option',
-          'Garantie de remboursement sous 120 jours'
+          'Garantie de remboursement sous 10 jours'
         ],
         isPopular: true,
         ctaText: 'Rejoindre le forfait populaire',
@@ -136,7 +136,7 @@ selectPlanType(type: 'individual' | 'family' ) {
           'Toutes les fonctionnalités précédentes',
           'Support prioritaire',
           '42 mois pouvant être répartis sur 3 appareils différents simultanément',
-          'Garantie de remboursement sous 120 jours'
+          'Garantie de remboursement sous 10 jours'
         ],
         ctaText: 'Rejoindre le forfait premium',
         planType: 'family'
@@ -152,7 +152,7 @@ selectPlanType(type: 'individual' | 'family' ) {
           'Toutes les fonctionnalités précédentes',
           'Support prioritaire',
           'Utilisable sur 2 appareils différents mais pas simultanément',
-          'Garantie de remboursement sous 120 jours'
+          'Garantie de remboursement sous 10 jours'
         ],
         isPopular: true,
         ctaText: 'Rejoindre le forfait à vie',
@@ -191,12 +191,7 @@ selectPlanType(type: 'individual' | 'family' ) {
       });
   }
 }
-form = {
-  firstname: '',
-  country:'',
-  email: '',
-  phone: '',
-};
+
 freeTrialData = {
   email: '',
   firstName: '',
@@ -205,11 +200,9 @@ freeTrialData = {
 };
 isSubmittingTrial = false;
 trialSubmissionStatus: 'success' | 'error' | 'pending' | 'none' = 'none';
-trialResponseMessage: string = ''; // To hold success/error messages
+trialResponseMessage: string = ''; 
 
- // --- Free Trial Method ---
- requestFreeTrial() {
-  // Form validation is already handled by template, so we can proceed directly
+ requestFreeTrial(form :NgForm) {
   this.isSubmittingTrial = true;
   this.trialSubmissionStatus = 'pending';
   this.trialResponseMessage = '';
@@ -225,57 +218,107 @@ trialResponseMessage: string = ''; // To hold success/error messages
   this.freeTrialService.requestTrial(payload).subscribe({
     next: (response: FreeTrialResponse) => {
       this.trialSubmissionStatus = 'success';
-      this.trialResponseMessage = 'Success! Please check your email to verify your free trial.';
-      // Reset form after success
-      this.freeTrialData = { email: '', firstName: '', country:'', whatsappNumber: null };
+      this.trialResponseMessage = 'Succès ! Veuillez vérifier votre e-mail pour valider votre essai gratuit.';
+      // Réinitialiser le formulaire après succès
+      this.freeTrialData = { email: '', firstName: '', country: '', whatsappNumber: null };
       this.isSubmittingTrial = false;
+      form.resetForm(); 
+
     },
     error: (error: HttpErrorResponse) => {
-      console.error('Registration error:', error);
+      console.error('Erreur d\'inscription :', error);
       this.trialSubmissionStatus = 'error';
       this.isSubmittingTrial = false;
-    
-      // Check the actual error response body
+  
+      // Vérifier le corps de la réponse d'erreur
       const errorBody = error.error;
-      console.log('Error body:', errorBody);
-    
-      // Process the error message
+      console.log('Corps de l\'erreur :', errorBody);
+  
+      // Traiter le message d'erreur
       if (errorBody && errorBody.code) {
         switch (errorBody.code) {
           case 'EMAIL_EXISTS':
-            this.trialResponseMessage = 'This email is already registered. Please use a different email.';
+            this.trialResponseMessage = 'Cet e-mail est déjà enregistré. Veuillez utiliser un autre e-mail.';
             break;
           case 'PHONE_EXISTS':
-            this.trialResponseMessage = 'This WhatsApp number is already registered. Please use a different number.';
+            this.trialResponseMessage = 'Ce numéro WhatsApp est déjà enregistré. Veuillez utiliser un autre numéro.';
             break;
           default:
-            this.trialResponseMessage = errorBody.message || 'Registration failed. Please try again.';
+            this.trialResponseMessage = errorBody.message || 'Échec de l\'inscription. Veuillez réessayer.';
         }
       } else if (errorBody && errorBody.message) {
-        // If there's a message but no code
+        // S'il y a un message mais pas de code
         const errorMsg = errorBody.message.toLowerCase();
         if (errorMsg.includes('email')) {
-          this.trialResponseMessage = 'This email is already registered. Please use a different email.';
+          this.trialResponseMessage = 'Cet e-mail est déjà enregistré. Veuillez utiliser un autre e-mail.';
         } else if (errorMsg.includes('whatsapp') || errorMsg.includes('number')) {
-          this.trialResponseMessage = 'This WhatsApp number is already registered. Please use a different number.';
+          this.trialResponseMessage = 'Ce numéro WhatsApp est déjà enregistré. Veuillez utiliser un autre numéro.';
         } else {
           this.trialResponseMessage = errorBody.message;
         }
       } else {
-        // Fallback error message
-        this.trialResponseMessage = 'Registration failed. Please try again.';
+        // Message d'erreur par défaut
+        this.trialResponseMessage = 'Échec de l\'inscription. Veuillez réessayer.';
       }
     }
   });
+  
 }
 
-resetForm() {
-  this.form = {
-    firstname:'',
-    country:'',
-    email: '',
-    phone: ''
-  };
+private animatedElements: Element[] = [];
+showMenu = false;
+
+ngOnInit() {
+  this.animatedElements = Array.from(document.querySelectorAll('.animated-text'));
+  this.checkScroll();
+
+  setTimeout(() => {
+    this.showMenu = true;
+  }, 5000);   // Show after 5 seconds
+
+// Show WhatsApp button after 5 seconds
+setTimeout(() => {
+  const whatsappButton = document.getElementById('whatsappButton');
+  if (whatsappButton) {
+    whatsappButton.classList.add('visible');
+  }
+}, 5000);
+}
+
+private initializeWhatsAppButton() {
+  // First attempt to show the button
+  setTimeout(() => {
+    const whatsappButton = document.getElementById('whatsappButton');
+    if (whatsappButton) {
+      whatsappButton.classList.add('visible');
+    } 
+    
+  }, 5000);
+  
+  // Backup attempt in case the first one fails
+  setTimeout(() => {
+    const whatsappButton = document.getElementById('whatsappButton');
+    if (whatsappButton && !whatsappButton.classList.contains('visible')) {
+      whatsappButton.classList.add('visible');
+    }
+  }, 6000);
+}
+
+@HostListener('window:scroll', ['$event'])
+onScroll() {
+  this.checkScroll();
+}
+private checkScroll() {
+  const windowHeight = window.innerHeight;
+
+  this.animatedElements.forEach((element) => {
+    const rect = element.getBoundingClientRect();
+    const triggerPoint = windowHeight * 0.8;
+
+    if (rect.top <= triggerPoint) {
+      element.classList.add('visible');
+    }
+  });
 }
 
 

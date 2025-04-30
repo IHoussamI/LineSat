@@ -5,7 +5,6 @@ import { CheckoutComponent } from './components/checkout/checkout.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { LoginComponent } from './components/login/login.component';
 import { AuthGuard } from './Services/Auth/auth.guard';
-import { Test1Component } from './components/test1/test1.component';
 export const routes: Routes = [
     {
     path: '',
@@ -13,11 +12,10 @@ export const routes: Routes = [
         children: [
             { path: 'home', component: HomeLayoutComponent },
             { path: 'checkout', component:CheckoutComponent},
-            { path: 'test', component:Test1Component},
             { 
-                path: 'dashboard', 
+                path: 'dashboard-admin', 
                 component: DashboardComponent, 
-                canActivate: [AuthGuard]  // Add AuthGuard here
+                canActivate: [AuthGuard]  
             },
             { path: 'login', component: LoginComponent },
             { path: '', redirectTo: 'home', pathMatch: 'full' },

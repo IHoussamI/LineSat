@@ -19,7 +19,7 @@ export class LoginComponent {
   };
 
   error: string = '';
-  redirectUrl: string = '/dashboard'; // Default redirect
+  redirectUrl: string = '/dashboard-admin'; // Default redirect
   validAccess: boolean = false;
 
 
@@ -57,7 +57,6 @@ export class LoginComponent {
 
 
   ngOnDestroy(): void {
-    // When navigating away from login page, clear the access flag
     // This prevents someone from going back to login page after navigating away
     sessionStorage.removeItem('attemptingProtectedAccess');
   }

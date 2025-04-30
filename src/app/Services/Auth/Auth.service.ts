@@ -10,8 +10,8 @@ import { Router } from '@angular/router';
 })
 export class AuthService {
 
-  private apiUrl = 'http://localhost:8080/api/auth';
-  private redirectUrl: string = '/dashboard'; // Default redirect
+  private apiUrl = 'https://api.line-sat.com/api/auth';
+  private redirectUrl: string = '/dashboard-admin'; 
 
   constructor(private http: HttpClient , private router : Router) {}
 
@@ -21,12 +21,10 @@ export class AuthService {
       tap(response => {
         sessionStorage.setItem('token', response.token);
         // Check if there's a saved redirect URL
-        const redirectUrl = localStorage.getItem('redirectAfterLogin');
-        if (redirectUrl) {
-          // Clear the saved URL
-          localStorage.removeItem('redirectAfterLogin');
-          // Router navigation will be handled by the component
-        }
+        const redirectUrl = localStorage.getItem('redirectAfterLogin') || '/dashboard-admin';
+          localStorage.removeItem('redirectAfterLogin'); // Clear it after use
+          this.router.navigateByUrl(redirectUrl);          // Router navigation will be handled by the component
+        
       })
     );
   }
@@ -36,7 +34,7 @@ export class AuthService {
 
   getRedirectUrl(): string {
     const url = this.redirectUrl;
-    this.redirectUrl = '/dashboard'; // Reset to default
+    this.redirectUrl = '/dashboard-admin'; // Reset to default
     return url;
   }
 
@@ -46,7 +44,6 @@ export class AuthService {
     sessionStorage.removeItem('redirectUrl');
     sessionStorage.removeItem('attemptingProtectedAccess');
 
-    // Redirect to login page after logout
     this.router.navigate(['/home']);
     }
 

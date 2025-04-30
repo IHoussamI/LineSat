@@ -71,13 +71,13 @@ export class DashboardComponent implements OnInit {
     // Load Trial Requests
     this.adminService.getTrials().subscribe({
       next: (trials) => {
-        console.log('Trials loaded:', trials); // Debug log
+        console.log('Trials loaded:', trials); 
         this.trials = trials;
         this.updateTrialStats();
         this.loading.trials = false;
       },
       error: (err) => {
-        console.error('Detailed error:', err); // Detailed error logging
+        console.error('Detailed error:', err); 
         this.errors.trials = 'Failed to load trial requests. Please check console for details.';
         this.loading.trials = false;
       }

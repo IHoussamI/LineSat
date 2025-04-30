@@ -38,7 +38,7 @@ button:hover .button-text.hover-text,
 
 /* HEADER ** */
 header {
-  position: absolute; /* Changed from absolute to fixed */
+  position: absolute; 
   top: 0;
   left: 0;
   width: 100%;
@@ -124,8 +124,8 @@ header {
 }
 
 .ESSAI-button {
-  display: flex; /* Add this */
-  align-items: center; /* Vertically center children */
+  display: flex; 
+  align-items: center;
   gap: 8px;
   background: linear-gradient(135deg, #FFD700 0%, #FFB300 50%, #B8860B 100%);
   color: black;
