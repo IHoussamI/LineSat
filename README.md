@@ -1,27 +1,33 @@
-# LineSat
+README for Linesat (English)
+markdown
+Copy
+Edit
+# Linesat — Membership Sales Platform (Ireland)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.7.
+Linesat is a sleek and modern web application designed to sell memberships in Ireland. Built with a beautiful and intuitive interface, it provides admins exclusive access to a secure dashboard.
 
-## Development server
+## 🛠 Key Features
+- 🔐 Admin authentication with JWT security  
+- 📊 Dashboard displaying orders, free trials, and detailed user information  
+- 🖥️ Clean and responsive UI for smooth management  
+- 🇬🇧 Fully in English for an Irish audience  
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## 🚀 Technology Stack
+- Frontend: Angular 18+  
+- Backend: Spring Boot 3+ with Java 17  
+- Authentication: JWT (JSON Web Tokens)  
+- Database: MySQL  
 
-## Code scaffolding
+## ⚡ Quick Start
+```bash
+git clone https://github.com/IHoussamI/Linesat.git
+cd Linesat
+npm install
+ng serve
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+📫 Contact
+Email: Mesk.hsm@gmail.com
+LinkedIn: [Your LinkedIn URL]
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+🤝 Contributions
+Pull requests are welcome! Please open an issue first to discuss proposed changes.
